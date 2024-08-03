@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>RAM-a-thon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page2">
+    <p>
+        <h1 class="header">Part of 'RAM-a-thon'</h1>
+        <p class="header-p" style="text-align: center;">cyber rift</p>
+      </p>
+
+    <section class="intro">
+        <h5>Segment 2</h5>
+        <h2>Types Of RAM</h2>
+        <p>They've evolved significantly over the years, resulting in a variety of types and architectures with each one targeted for a specific use and performance requirements.
+            <br> So let's go through some of the most common types:</p>
+
+        <h2>Static RAM</h2>
+        <p>Starting with the Static type, also referred to as ‘SRAM’, is a type of RAM that relies on <font color="#517519">latching circuitry</font> (aka, flip-flops) to store each Bit of data and it is faster, more expensive than ‘DRAM’.
+            <br> The main difference is this one doesn't require periodic refreshing plus the fact it has multiple transistors per storage and thus making it suitable for <font color="#517519">cache memory</font> (used on CPUs? yes) with high-speed registers in CPUs ( as explained in Segment 3):
+
+           <br> <br> • Call Structure: <font color="#517519">SRAM</font> consists of multiple transistors as <font color="#517519">‘flip-flops’</font>, this type of arrangement is what makes it different and allows each memory cell to store just one Bit of data. Unlike DRAM, the data remains intact (stored) in the memory cell without the need for periodic refresh.
+            
+           <br> <br> • Speed: SRAM, known for its fast access time compared to <font color="#517519">DRAM</font>, since it does not require continuous <font color="#517519">refreshing</font>, it can provide quick access to stored data which makes it suitable for applications that require high-speed operation such as CPU memory cache.
+            
+           <br> <br> • Density: Static RAM tend to have low storage capacity due to the way it's made since it requires more transistors per storage, primarily because of the ‘flip-flop’ limitation as a result, we use it for smaller memory arrays and or cache memory.
+            
+           <br> <br> • Usage: It is commonly found in various computing systems where fast access to data is… what's the word? oh yeah ‘critical’. Mostly used in Cache Memories (incl CPUs) to store frequently accessed data and instructions where address lines aren’t an ‘issue’.</p>
+        
+        <h2>Dynamic RAM</h2>
+        <p>This one dosen't need an explanation, you're already using it at this very moment. If not then here you go:
+
+            <br> <br> • Cell Structure: DRAM <font color="#517519">Cells</font> are composed of a capacitor and a transistor, the capacitor stores the data (electrical charges as discussed earlier), the transistor acts as a switch to  control said data.
+            
+            
+            <br> <br> • Speed: It generally suffers from latency compared to <font color="#517519">SRAM</font>, but don’t worry because there’s a workaround to that named DDR, we’ll get to it in a bit. However in the past decade we’ve seen many technical advancements regarding DRAM since it's the most used type of RAM in (Personal) computers.
+            
+            
+            <br> <br> • Usage: The primary use of this <i>memory magic wand</i> is to complain for not having a <font color="#517519">nasa</font> computer- ok jokes aside, <font color="#517519">DRAM</font> directly impacts system performance and that’s the main reason it’s *mostly* used as a daily driver for every device in your house, nothing can beat this marvel.
+            
+            
+            <br> <br> • Density: It offers extremely higher storage density (again, compared to SRAM), this is what makes it eligible for larger memory capacities in terms of computing. Because DRAM cells require fewer transistors per Bit of storage.
+            <br> Fun fact: some (D)RAM manufacturers say we already hit the size wall, which means we can't shrink RAM transistors any further and in other words you won't be able to put a PC in your pocket. Sad right? Well, let me remind you that 50 years ago a storage drive of approximately 5mb was as big as a car.</p>
+
+        <h2>Double Data Rate</h2>
+        <p>Okay, this one is interesting because it's able to transfer data on both the raising and falling edges of the <font color="#517519">clock signal</font>, doubling the data transfer rate compared to traditional ‘SDR’ (Single Data Rate) at no cost!
+
+           <br> <br> <b>Note</b>: In a DDR memory, you should know that while the data transfer rate is doubled, the true clock speed of the memory system bus remains the same. This means that the effective clock speed for control signals is only half of the data transfer rate.
+           <br> Although DDR memory has double the speed, their latency remains comparable to that of non-DDR systems. This is because the control signals, which determine the timing of memory operations, operate at the lower bus clock speed. Despite the increased data transfer efficiency of DDR memory, the main timing characteristics remain unchanged as follows:
+            
+           <br> <br> • Cell Structure: DDR RAM uses a similar cell structure to traditional DRAM, containing the same amount of capacitors and transistors arranged in the same layout as the other RAM types I've explained earlier and in case you forgor, each memory cell stores the same single bit of data as an electric charge in the capacitor (again and again and again, 1 or 0).
+            
+           <br> <br> • Speed: You think it's as slow as yout internet, but.. just no.
+           <br> DDR (D)RAM operates at waaay higher speeds than its predecessors due to its double data rate architecture. You may ask “what unit do we use for DDR?” we measure it using <font color="#517519">megahertz (MHz)</font> and <font color="#517519">gigatransfers (GT/s)</font>, indicating the rate at which data can be transferred between the RAM module (memory controller included).
+           <br> <br> <b>Patter fact</b>: if you’re a Zoomer reading this, yes DDR is the <font color="#517519">gigachad</font> of RAMs. it’s even measured in gigatransfers!.
+            
+           <br> <br> • Density: I should’ve named it <font color="#517519">Higher-Density</font> for the sake of having more capacities depending on the specified DDR generation and module config.
+           <br> This is because more memory cells are packed into the same physical space allowing for an even greater storage capacity.
+            
+           <br> <br> • Usage: It is used as the main system memory in all computers, servers, and other electronic devices such as graphics cards and phones nowadays.
+           <br> I hope you’re not an IOS lover-  we went through this technological revolution just so <font color="#517519">Safari</font> can eat as much RAM as it possibly can! what a world we live in.
+            
+           <br> <br> • Variations: This one has seen several different variations or generations, you name it. The first version ever released is <font color="#517519">DDR1</font> in the year <font color="#517519">2000</font> and has a maximum data transfer rate of <font color="#517519">266 mega-transfers/s (MT/s)</font>, RAMs at that time were so slow they were nowhere close to <font color="#517519">giga-transfers/s (GT/s)</font>, but now they do since it came along way up to <font color="#517519">8.4 giga-transfer/s</font> with the presence of DDR5, the latest generation of DDR memory introduced in 2020.</p>
+    
+            <h2>Graphics Double Data Rate</h2>
+            <p>This is just <font color="#517519">DDR</font> + <font color="#517519">G</font>, ok it’s not. 
+                <br> <font color="#517519">Graphics DDR</font> is a specialized type of RAM optimized for use in <font color="#517519">graphics</font> (produced for GPUs) and Video-Cards. Offering significantly higher bandwidth in comparison to standard (D)DDR-RAMs making it well suited like me but for handling large volumes of data required to render HD… what? HD <font color="#517519">“complex”</font> visual effects. It kinda acts like RAM for GPUs to use with their CPU. Only the GPU has access to it tho! Here’s what else you should know:
+
+                <br> <br> • Cell Structure: The said RAM type is also a DRAM but for GPUs as it shares similarities with traditional DDR-RAM but is optimized for graphics-intensive tasks as explained above. One of its key features is that it is made specifically for High Bandwidth data transfer to give you that smooth framerate have.
+                <br> The architecture of GDDR memory cells is designed to accommodate the demands of graphics rendering and other GFX intensive tasks.
+                <br> <br> <b>Reminder</b> —> 'G' doesn't always stand for graphics but in this case, it does :).
+                
+                <br> <br> • Speed: High-speed, that’s all. Oh and it’s measured in gigabits <font color="#517519">(Gb’Gbps)</font>, because graphics rendering needs the fastest speed and due to its wider memory bus architecture compared to traditional DDR RAM it delivers! while also taking advantage of advanced parallel transfer techniques by splitting data into smaller chunks and processing them simultaneously across multiple memory buses, not the Fortnite bus.
+                
+                <br> <br> • Density: <font color="#517519">GDDR</font> memory has an advanced packaging technique called chip-on-wafer, whereas individual semiconductor chips (aka, Dies) are directly mounted onto a wafer layer offering several advantages such as better cost reduction during production, good Thermal Management providing the multi-layer chips a reduced temperature and effective heat dissipation.
+                
+                <br> <br> • Usage: Well guess what? GDDR has the word <font color="#517519">“Graphics”</font> which means one and only one thing - it’s used in Graphics Cards most commonly for gaming and video editing or basically anything you do on your computer.
+                <br> It also serves as the main memory for storing and processing graphical data (e.g: Textures, Geometry, Shaders and most importantly Framebuffers to render on your screen as the final product) depending on the capacity since it ranges according to usage requirements.
+                
+                <br> <br> • Variations: over decades of development, GDDR has'nt evolved like us, from monkeys to humans.
+                <br> Instead it miraculously went through several generations with each one offering improvements in terms of performance, efficiency and capabilities making it go from GDDR 1 –> GDDR2… –> GDDR6. They’re essentially evolving hardware upgrades unlike Apple products.</p>
+    
+                <h2>Rambus Dynamic RAM</h2>
+                <p>Is the expansion of <font color="#517519">RD-RAM</font> which is (or was) a high performance type of RAM developed privately by <font color="#517519">Rambus Inc</font>, it offers fast data transfer rates and better bandwidth than DRAM itself! They faced unfortunate financial and licensing issues at the time being forcing them out of the game.
+                    <br> I wonder what happened to this concept… it never emerged into the light. All i know is it featured a <font color="#517519">memory cell</font> structure based on Rambus’s proprietary architecture which even to this day no one knows how it works and during my research there weren't many explanations about it.
+                    <br> And for the record, It was ACTUALLY marked for the highest speed and data transfer capabilities memory, which destroyed those solid-memory types such as SDRAM and (DDR)DRAM.
+                    <br> <br> Advertisements showed one of its reasons-to-buy-our-product, that was ‘the utilization of a high speed serial interface’ whatever that means. You tell me.</p>
+            
+            <h2>Non-Volatile RAM</h2>
+        <p>NVRAM is a category of memory that retains stored data even when power is lost. Unlike traditional volatile RAM types, pretty similar to storage devices like SSDs and many many types of NVRAM were developed.
+            <br> There are also so many other experimental non volatile types that nobody cares about like:
+
+            <br> <br> • Ferroelectric RAM: <font color="#517519">FeRAM</font> stores data using a ferroelectric material that maintains electric charges when there is no power, this is known as <font color="#517519">The Polarization</font> of ferroelectric charges.
+            
+            <br> <br> Before you think about it, this is not some quantum computer gibberish that even to this day i don't understand.
+            <br> So the polarized charges represent Binary just like in previous types – It also offers fast speeds, low power consumption and better ‘life expectancy’ while commonly used in applications where data persistence and fast access times are… critical.
+            <br> Definitely not buying one, 1 stick costs as much as your whole PC build (taxes excluded).
+            
+            <br> <br> • Magnetoresistive RAM: Abbreviated to <font color="#517519">MRAM</font>, works the same way as the other one but instead of ferroelectric materials, it uses the resistance of <font color="#517519">magnetic material</font> changes based on its orientation allowing it to represent binary data and retain their state even without power.
+            <br> Now this sounds familiar… Quantum computers? yes’nt and don't ask why!</p>
+
+            <p style="text-align: center;"><i>Empty space for no reason, literally</i></p>
+
+            <button id="prev-button" class="nav-button" style="text-align: right;" onclick="window.location.href='page1.html'">Prev&#160; &#11164;</button>
+            <button id="next-button" class="nav-button" style="text-align: left;" onclick="window.location.href='page3.html'">&#11166; &#160;Next</button>
+
+            <a href="page1.html"><button id="ChapterPrev">&#11164; Prev</button></a>
+            <a href="page3.html"><button id="ChapterNext">Next &#11166;</button></a>
+
+        </section>
+
+    <footer>
+        <p>This is still a <i>work-in-progress</i> and might contain mistakes, if you find any: please pull a request on the <a href="https://github.com/ILyesMk2/RAM-a-thon" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Github page.</i></a></p>
+    </footer>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

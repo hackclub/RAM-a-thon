@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>RAM-a-thon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page1">
+    <p>
+        <h1 class="header">Part of 'RAM-a-thon'</h1>
+        <p class="header-p" style="text-align: center;">cyber rift</p>
+      </p>
+
+    <section class="intro">
+        <h5>Segment 1</h5>
+        <h2>What is RAM</h2>
+        <p style="text-align: left;">Random Access Memory stands for RAM, or the opposite... Honestly it depends on how you look at it. <br> But in reality it's like the short-term memory of your computer, where it stores data that needs to be accessed quickly while being used. As opposed to long-term storage like hard drives or SSDs, RAM can be accessed randomly, meaning your computer can grab any piece of data from any memory location without having to go through the preceding bytes. Some people claim RAMs are made of cheese (And that's a fact).
+            <br> Think of it as a fast and temporary storage space computers keep the information it's currently using to run programs and execute tasks. When you start a program or perform anything, the necessary data loads into RAM so the computer can access it quickly whenever needed.
+            <br> It's what's allowing your computer to multitask, run multiple programs simultaneously without causing a fire. The more RAM capacity your computer has, the more tasks it can handle at once without getting bogged down by the browser you're using right now.
+            <br> You should also know that RAM is volatile, which means it loses all its stored data when the power is turned off. That's why your computer saves files and data to long-term storage, to keep them safe even when the computer is shut down, because without it computers would struggle to multitask, run programs or even boot up!</p>
+        
+        <h2>Importance of RAM (in) Computing</h2>
+        <p> <b>TLDR:</b> It's more important than a keyboard (And that's another fact).
+            <br> <br> To clarify the keyboard mention: do you need one? Yes. But can you start a computer without it? Yes. That's the point when you launch a program or load a file, the data is temporarily stored in your RAM so that the CPU can quickly access and manipulate it.
+            <br> To remind you, The more RAM your computer has, the more data it can store temporarily, allowing for smoother multitasking, faster program execution and letting Windows use almost 50% of it (<i>please use <font color="#517519">Linux</font></i>).
+            <br> The CPU can quickly retrieve and modify data stored in it, And if that data takes more space than it should, the CPU would have to heavily rely on storage devices.
+            <br> If you're psyching your self-out because of it like i am, then yes using an SSD as RAM leads to poor performance, making loading a program as slow as waiting for the sun to explode. Which I'm sure nobody wants, unless you’re truly a <font color="#517519">psycho</font>.
+            <br> <br> Later, we will dive deeper into the inner workings of RAM, It's internal structure, how it really works, and common implications in modern computing.
+            <br> But what about the <font color="#517519">not-so-modern</font> implications? Consider, just for refference. The first commercially mass-produced RAM chip to enter the market liquidity was the <a href="https://en.wikipedia.org/wiki/Intel_1103" rel="noopener noreferrer" target="_blank" class="custom-link"><i>'Intel® 1103'</i></a> , developed and fabricated by them in October <font color="#517519">1970</font>. It was a <a href="https://en.wikipedia.org/wiki/Dynamic_random-access_memory" rel="noopener noreferrer" target="_blank" class="custom-link"><i>dynamic-random-access-memory</i></a> (DRAM) chip, marking a significant advancement from earlier memory technologies, it offered relatively greater storage density and less Latency. Despite its modest capacity by modern standards – holding just <font color="#517519">'1 kilobit'</font> of data still laid the groundwork for the dynamic RAM technology to continue to today's computers as it turned computing up-side down – After learning about that, I bet you can’t emphasize the fact that <font color="#517519">Intel®</font> used to make RAMs, and neither do i!
+            <br> <br> But hear me out, knowing how RAM functions is the key to make it faster or simply finding computer architectures interesting in first place.</p>
+            
+        <h2>The Basics of it</h2>
+        <p>Have you ever pondered why data is temporarily stored in RAM rather than permanently like SSDs? How exactly does the CPU manage to store and retrieve its data in RAM when needed? We’ll find out…
+            Keep in mind this topic is a general explanation of the basics of RAM (<i>you will find detailed technical coverage of this in the next segments</i>). And to get you started, lets begin with taking a scope on how the CPU stores said data to RAM.
+            <br> <br> We have what is known as the CPU <a href="https://en.wikipedia.org/wiki/Instruction_cycle" rel="noopener noreferrer" target="_blank" class="custom-link"><i>fetch-decode-execute</i></a> cycle. Where the CPU continuously draws instructions from memory, decodes them to determine the operation and operands then executes the instructions, performing computations accordingly to its demands.
+            <br> I decided to further delay this topic all the way down to <a href="page3.html" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Segment 3</i></a> in <font color="#517519">“CPU Registers”</font> since it needs its own Topic.
+            <br> <br> So we’ll get back to it after a bit – to get you prepared for the low-level tech talk down the line, you'll see some basic concepts of RAM’s specifications:
+            
+            <br> <br> • Memory: Not your memory whether you remember things or not – but in computer science, Memory refers to the electronic components that store data temporarily or permanently (in our case its <font color="#517519">temp</font> stored).
+            
+            <br>  <br> • Volatility: Why did the RAM module break up with its computer? I'll answer that in a moment. Volatility is about whether the data stored in memory persists or not after the power is lost – to answer the <font color="#517519">chubby</font> question, the RAM broke up with its computer because it couldn’t handle the memory leaks in their relationship! Haha, that was slightly humorous.... <a href="https://www.youtube.com/watch?v=JwYzHW_q3c4&pp=ygUQdnNhdWNlIG9yIHdhcyBpdA%3D%3D" rel="noopener noreferrer" target="_blank" class="custom-link"><i>or was it?</i></a>
+            
+            <br>  <br> • Random Access: The random access capability of this type of memory allows data to be accessed quickly and rather efficiently from any location, unlike sequential access where data needs to be accessed in a pre-determined order, it lets CPU to access data from any memory location constantly at all times regardless of the previously accessed data.
+            
+            <br>  <br> • Temporary Storage: RAMs serve as temporary storage data for program instructions that are actively used by the CPU and possibly other components. The downside for that? it has a limited storage capacity to even count as a storage ‘drive’ but does not retain data when power is lost. And kids… this is why im advising you to <font color="#517519">Hibernate</font> your PC.
+            
+            <br>  <br> • Bizzare Measurements: It is usually measured in <font color="#517519">gigabytes (GB)</font> or <font color="#517519">gigabits (Gb)</font>, as computers have a certain amount of RAM installed, they range all the way from <font color="#517519">megabytes (MB)</font> up to <font color="#517519">terabytes (TB)</font> for current gen <a href="https://en.wikipedia.org/wiki/64-bit_computing" rel="noopener noreferrer" target="_blank" class="custom-link"><i>64-Bit computers</i></a> and older <a href="https://en.wikipedia.org/wiki/32-bit_computing" rel="noopener noreferrer" target="_blank" class="custom-link"><i>32-Bit systems</i></a> have a maximum of <font color="#517519">4GB</font>. meaning a higher capacity like 8GB can't be used due to a hardware limitation of having just <font color="#517519">2^32 Bytes</font>, this goes for CPUs as well.</p>
+            
+            <h2>The Internal Structure</h2>
+            <p>Want to become a ramstermind? Then you can't skip learning about it from the inside-out, but wait!
+                <br> <br> The way it works is fascinating because at the heart of each and every RAM are <font color="#517519">memory cells</font>, tiny units capable of storing a single bit of data <font color="#517519">(0 or 1)</font>. Arranged in an array, forming the building blocks of RAM modules with each cell being essentially a capacitor or a <font color="#517519">flip-flop</font> circuit holding an electrical charge to represent binary data (again. <font color="#517519">0</font> or <font color="#517519">1</font>) living in a grid that looks like a row of..  slots? Yep!
+                <br> If you don't know yet, CPUs interpret only binary code, which consists of numerical instructions. This is referred to as <font color="#517519">machine code</font> or <font color="#517519">machine language</font>, and it is represented solely with <font color="#517519">1s</font> and <font color="#517519">0s</font>.
+                <br> <br> While known as <font color="#517519">Rows</font> in computer science, they are structured into rows and columns, resembling the described layout. Each one intersects at a memory cell and is defined as a wordline, allowing the selection of specific memory Rows for reading from or writing to the desired address in memory. 
+                <br> <br> You recognize this... <font color="#517519">0xA011FF</font>? no? okay you clearly never cheated in any game, well no worries.
+                <br> <font color="#517519">0xA011FF</font> is a <i>physical</i> RAM address that consists of 6 Hexadecimal digits and each character in the latter address represents a <a href="https://en.wikipedia.org/wiki/Nibble" rel="noopener noreferrer" target="_blank" class="custom-link"><i>nibble</i></a> <font color="#517519">(4-Bits)</font>. It is controlled by the memory controller, the desired row and column in the RAM array based on the memory address is provided/selected by the CPU.
+                <br> everything you just read is wrong, just kidding. But who knows? because we may (will) have new architectures sometime in the future.
+                <br> <br> The <font color="#517519">'instructions'</font> that CPUs execute are nothing but raw binary data that is formed by a series of bits, which represent specific operations <font color="#517519">(Opcodes)</font> to be performed by the CPU, that is. The <a href="https://en.wikipedia.org/wiki/Control_unit" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Control Unit</i></a>.
+                Think of it as 8 groups and each group has 8 people, with each one representing a bit, by doing a simple calculation you can tell we have <font color="#517519">8 bytes</font>.
+                <br> All memory cells store one Bit of data and multiple of these can be combined to store larger numbers of data units such as Bytes, Megabytes or even Terabytes… etc.
+                making the browser you’re reading this with possible as you're most likely to be using a DRAM right now.
+                <br> What's that? a <font color="#517519">‘DRAM’</font> (Dynamic RAM) is. As the name states, dynamic because <font color="#517519">memory cells</font> require periodic refreshing to maintain the integrity of stored data due to charge leakage from the capacitors used to store data because, again RAM is way faster and incomparable to the other methods of slow data storage. Now that you’re familiar with that term, DRAM comes equipped with a Refresh Circuitry {wiki link, X}. A chip-like module built into it that ensures data is being periodically re-written to memory cells preventing the possibility of charge and data loss.
+                <br> <br> <b>A Nugget of information:</b> A <font color="#517519">Bit</font> is the smallest addressable unit, meaning that the CPU can read or write one Bit at a time at speeds you can't possibly fathom.</p>
+            
+            <h2>RAM Operating</h2>
+            <p> Why does RAM uses addresses instead of storage blocks to manage data? This aspect is only the tip of the ice-berg as they say. Let's see how memory addresses in RAM operate during workloads and ongoing tasks.
+
+                Random access memories run through a structured process involving memory addressing, reading, writing... etc.
+                <br> <br> The range of valid memory addresses in a computer is called the address space. In a <font color="#517519">32-bit</font> system, each memory address is typically represented by a <font color="#517519">32-bit</font> binary number, such as <font color="#517519">‘0x08405260’</font>, which corresponds to the hexadecimal translation of the number <font color="#517519">‘134484912’</font>. This translation from physical address to a virtual address is handled by the <a href="https://en.wikipedia.org/wiki/Memory_management_unit" rel="noopener noreferrer" target="_blank" class="custom-link"><i>memory management unit</i></a> <font color="#517519">(MMU)</font>, allowing the operating system to manage memory by providing each process with its own virtual address space.
+                
+                <br> For example, reading from RAM is a relatively fast operation because data can be accessed directly without needing retrieval from external storage devices, But the CPU, and only it, can request stored data in RAM by sending the corresponding memory address to the desired location. The memory controller then intercepts this address and activates the appropriate row and column in the RAM array using address lines. Thus, in the state of reading, the CPU can retrieve data stored in RAM but cannot change or modify the content of RAM <font color="#517519">cells</font>.
+                
+                Because when writing to RAM, the CPU sends a write command along with the memory address and the data to be written. For example, to write the value <font color="#517519">‘0xFF’</font> to address <font color="#517519">‘0x00400000’</font>, the memory controller locates the specified memory cell by allowing access to the corresponding row and column in the RAM <font color="#517519">array</font>.
+                
+                <br> Writing to RAM is also a fast operation, although it may require slightly more time than reading due to the additional step of data transfer and the commands issued by the CPU.
+                
+                Access time and latency are important in memory operations. Have you ever experienced stutters when playing a game or running an intensive program? You're not alone.
+                
+                <br> <br> As much as this can be related to RAM, It's not.
+                
+                <br> Mostly When the CPU requests to write or read data from the RAM, there is a delay caused by various factors, including the RAM itself. Remember, the more your RAM costs, the faster it is, because fast and good-quality RAMs tend to have lower <font color="#517519">latencies</font> due to the way they're made.
+                
+                <br> Lastly, each <font color="#517519">memory cell</font> within RAM stores a physical bit in the <a href="https://en.wikipedia.org/wiki/Flip-flop_(electronics)" rel="noopener noreferrer" target="_blank" class="custom-link"><i>‘flip-flop’</i></a> capacitor in certain types of RAM. For example, a <font color="#517519">memory cell</font> might store the value <font color="#517519">‘1’</font> if the capacitor is charged or <font color="#517519">‘0’</font> if it is discharged.</p>
+                
+                <p><b>Fa'g't</b>: In ASCII, the table goes up to the number 255, which is <font color="#517519">'11111111'</font> in binary. Meaning, 8 bits are sufficient to cover all the characters!</p>
+
+                <p class="emptyspace" style="text-align: center;"><i>Empty space for no reason, literally</i></p>
+                
+                <button id="prev-button" class="nav-button" style="text-align: right;" onclick="window.location.href='index.html'">Prev&#160; &#11164;</button>
+                <button id="next-button" class="nav-button" style="text-align: left;" onclick="window.location.href='page2.html'">&#11166; &#160;Next</button>
+                
+                <a href="index.html"><button id="ChapterPrev">&#11164; Prev</button></a>
+                <a href="page2.html"><button id="ChapterNext">Next &#11166;</button></a>
+
+    </section>
+
+    <footer>
+        <p>This is still a <i>work-in-progress</i> and might contain mistakes, if you find any: please pull a request on the <a href="https://github.com/ILyesMk2/RAM-a-thon" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Github page.</i></a></p>
+    </footer>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

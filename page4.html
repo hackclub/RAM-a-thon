@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>RAM-a-thon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page4">
+    <p>
+        <h1 class="header">Part of 'RAM-a-thon'</h1>
+        <p class="header-p" style="text-align: center;">cyber rift</p>
+      </p>
+
+    <section class="intro">
+        <h5>Segment 4</h5>
+        <h2>Memory's VIP Treatment</h2>
+        <p>You see, memory is treated like a <font color="#517519">queen</font> in computers. How so? Something known as <font color="#517519">“memory bus”</font> exists, and it makes the CPU eligible for communicating with RAM through the <font color="#517519">Motherboard’s PCB</font> channels for transferring data and memory control <font color="#517519">signals</font>.
+            <br> <br> The memory bus acts as a bridge allowing the CPU to access and manipulate stored data in RAM which is needed to properly <font color="#517519">execute</font> programs and instructions.
+
+        <br> <br> <img src="pics/IObuses.png" class="img-small">   
+
+        <br> <br > Before that, how do you think your computer processes instructions so fast? Do they run on <font color="#517519">cheese</font>?
+
+        For the <font color="#517519">cheese</font> part, it depends. Well, they kind of have a highway designed specifically for instructions to travel through, referred to as the <font color="#517519">‘instruction pipeline’</font>.
+        So in a pipelined computer, tasks are divided into stages as instructions move through the CPU. Each stage handles a specific job, like fetching instructions, fetching data, performing calculations, and storing results. To make this process even faster, there are pipeline registers after each stage. At any given moment, an instruction is only in one stage of the pipeline. When instruction pipelines are designed well, most of their logic is active most of the time. <i>Von Neumann watching us in his tomb.</i>
+
+        <br> <br> <font color="#517519">Pipelined</font> processors typically employ three methods to assure correct functioning when the <font color="#517519">programmer</font> assumes that each instruction finishes before the next one starts, though it might cause a <font color="#517519">kernel</font> panic if one instruction didn't pass, waiting for necessary values before scheduling new instructions. This creates empty slots, or <font color="#517519">‘bubbles’</font>, where no work happens.
+        <br> Another path can be added to send a computed value to a future instruction in the pipeline before the <i>-currently-</i> <font color="#517519">producing</font> instruction finishes. This process is called <font color="#517519">operand forwarding</font>.
+        <br> <br> The processor then can find and execute other instructions that don't depend on the current ones without risk. This is called <font color="#517519">out-of-order</font> execution and helps optimize performance. The whole design looks something like this:
+        
+        <br> <br> <img src="pics/cpucyclefull.png" class="img-small">
+
+        <br> <br> You reached the end.. no, wait! while we’re still in the context of pipelines; let me introduce you to FPUs, because they’re FPU-linked at some point. <i>-this was intentionally unfunny-</i>
+        </p>
+        <h2>Floating Point Unit(s)</h2>
+        <p>
+            <a href="https://en.wikipedia.org/wiki/Instruction_pipelining" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Floating-Point Units</i></a> or <font color="#517519">FPUs</font> are the names of physical hardware components inside the CPU. They have their own exclusive design meant for handling floating-point <font color="#517519">arithmetic</font> operations - those operations that deal with numbers expressed in scientific notation or numbers that carry a <font color="#517519">fractional</font> part.
+            <br> <br> These <font color="#517519">FPUs</font> are made to precisely carry out these complex mathematical computations. And once again, Function is key. <font color="#517519">FPUs</font> are used to execute floating point arithmetic operations accurately during high speed time frames; they carry out this specific task, also the subtraction, multiplication and division of <font color="#517519">floating point</font> numbers, which are often more complex than standard <font color="#517519">integer</font> operations done by the <font color="#517519">'ALU'</font>.
+            <br> They also feature support for more mathematical functions like trigonometric or exponential ones that would allow scientific calculations otherwise, impossible on a processor without them.
+
+            <br> <br>They work separately from the main part responsible for general calculations. This means they have their own <font color="#517519">cache registers</font>, sets of instructions, and even <i>out of the book</i> methods to perform program executions. The reason behind this is that.. They deal specifically with numbers containing decimal points using specific algorithms designed for them; These algorithms are there to ensure that all operations involving such numbers are done fast without delay and in large quantities at once.
+
+            <br> <br> <font color="#517519">FPUs</font> are found everywhere in applications demanding spot-on high precision <font color="#517519">float-point</font> math applications make heavy use of <font color="#517519">FPUs</font> where exact math is important; scientific simulation programs, engineering computations, real-time systems.. You get my point.
+
+            <br> <br>Let’s do a quick reality check - FPUs deliver superior precision along with performance when contrasted against software-based floating point arithmetic implementations. They have come a long way to support more complex computations, a necessary part of today’s CPU architecture. Despite being highly specialized components that most software applications see through a glass darkly, they present themselves as transparent entities. This means that programmers can make use of their capabilities without swimming under the turkish waters of <font color="#517519">low-level</font> implementation(s).
+
+            <br> <br>Now that you know about it, <a href="https://en.wikipedia.org/wiki/Front-side_bus" rel="noopener noreferrer" target="_blank" class="custom-link"><i>FSB</i></a> is a term that refers to the primary communication channel between the CPU and other parts, including RAM, on the motherboard. In older systems you can find <font color="#517519">two</font> of these, one being the <font color="#517519">North bridge</font> and located in the left CPU side, the other one is (more like <i>was</i>) <font color="#517519">South Bridge</font> located just under the <font color="#517519">PCI-e x-YY</font> port.
+
+            <br> <br> It’s a literal highway within your computer serving as the main <font color="#517519">‘conduit’</font> for data transfer between the CPU and various components on the motherboard, modern system buses are typically based on <a href="https://en.wikipedia.org/wiki/Point-to-Point_Protocol" rel="noopener noreferrer" target="_blank" class="custom-link"><i>point to point interconnects</i></a> allowing for data to go from point A to B in a snap of (<font color="#517519">17</font>?) nanoseconds!
+            <br> AND.. This might give you a better idea on how memory size is defined to the driver(s) through a memory bus:
+            
+            <img src="pics/ramBdefine.png" class="img-small">
+
+        </p>
+
+
+        <h2>Kernel Topology</h2>
+        <p>Time for some <font color="#517519">Kernel</font>!!
+            <br> First, We’ll be taking a look at the Linux Kernel when it’s on <font color="#517519">Kernel-Level</font> and <font color="#517519">User-Space</font> memory access.
+
+            <br> <br> <font color="#517519">Userland</font> processes must not be allowed to read or write kernel memory for security reasons. Something called <font color="#517519">paging</font> provides an additional layer of security by enforcing permission flags on each memory <font color="#517519">page</font>.
+            
+            <br> <br> One flag determines if a memory region is <font color="#517519">writable</font> or only <font color="#517519">readable</font>. Another flag specifies that only kernel mode can access the memory region. This latter flag protects the entire higher half kernel space. While the entire <font color="#517519">kernel memory</font> space is locked (more like mapped) into the virtual memory layout accessible to user space programs, they simply lack the permissions to access it.
+            
+            <br> <br> The page table itself is within the kernel memory space. When the timer chip triggers a hardware interrupt for process switching, the CPU elevates its privilege level to kernel mode and transitions to Linux kernel code execution. Operating in <font color="#517519">kernel mode</font> (<font color="#517519">Ring 0</font> for Intel?) grants the CPU access to the <font color="#517519">kernel-protected</font> memory region, allowing modification of the page table, which is situated in the upper half of memory.
+            
+            <br> <br> Each entry in the page table, known as a <a href="https://en.wikipedia.org/wiki/Page_table" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Page Table</i></a> Entry <font color="#517519">(PTE)</font>, contains metadata defining the attributes and mappings for a specific memory page. These attributes include information about the page's physical address, permissions (<font color="#517519">read, write, or execute</font>), and whether the page is present in physical memory or <font color="#517519">reserved/swapped</font> out to disk.
+            
+            <br> <br>  <img src="pics/PTE.png" class="img-small">
+            
+            <br> <br> As soon as the kernel switches over to the new process and the CPU transitions into <font color="#517519">user mode</font>, access to the kernel memory is lost. These Page Table Entries <font color="#517519">(PTEs)</font> are then utilized by the kernel to remap the lower half of the virtual memory, a region identified by the <font color="#517519">program counter</font>, for the new process. By then, the CPU loses access to any of the kernel memory regions.
+            <br> <br> The kernel and CPU can only process one thing at a time. It's like they're taking turns to handle tasks efficiently. (it's true)
+            
+            <br> <br> So, When your computer accesses memory, it doesn't directly talk to the physical RAM. Instead, it communicates with virtual memory space, managed by what's called a page table. This system, known as paging, translates every memory access. Each entry in the page table, called a page, represents how a chunk of virtual memory links to RAM. These chunks are fixed in size, with <font color="#517519">x86-64</font> using a default page size of <font color="#517519">4 KiB</font>, mapping memory blocks <font color="#517519">4,096 bytes</font> long.
+            
+            <br> <br> At startup, memory accesses hit physical RAM first. Soon after, the <font color="#517519">OS</font> sets up the translation dictionary and signals the CPU to engage the <font color="#517519">MMU</font>. <i>x86-64</i> offers larger page sizes of <font color="#517519">2 MiB</font> or <font color="#517519">4 GiB</font>, enhancing address translation speed at the cost of memory fragmentation and waste. Larger chunks require more bits for indexing, leading to unchanged bits before and after translation.
+            <br> <br> What's interesting is that the <font color="#517519">page table</font> can be adjusted at runtime. This allows each process to have its own memory space. When the <font color="#517519">OS</font> switches between processes, it reassigns the virtual memory space to a new physical area. For example, process <font color="#517519">A</font> and process <font color="#517519">B</font> might both access their code and data from the same address, like <font color="#517519">'0x0000000000400000'</font>. In that case, they aren't competing for this space. The kernel maps their data differently in physical memory when switching between them.
+            
+            <br> <br>      <b>| Clarification</b>: How come the <font color="#517519">kernel</font> doesn't get stuck in just one instruction if it can only do one thing at a time? And how does it manage to handle lots of different tasks at once without getting <font color="#517519">jammed</font> up?
+            
+            <br> <br> You said your computer got jammed up? We discussed before how software <font color="#517519">interrupts</font> help switch control from a regular program to the <font color="#517519">operating system</font>. Imagine you're making an operating system, but your CPU can only handle one task at a time. To let users run multiple programs simultaneously, you switch between them quickly. This way, each program gets a turn without hogging the CPU. But how so?
+            <br> <br> Well, many computers have <font color="#517519">timer chips</font>. Consider that, By programming these chips, you can make them trigger a switch to an <a href="https://en.wikipedia.org/wiki/Interrupt_handler" rel="noopener noreferrer" target="_blank" class="custom-link"><i>OS interrupt handler</i></a> after a set time. Other than that, we got the good old <font color="#517519">‘program counter’</font> method, which is yet another CPU register. This register tells the CPU where it currently stands within the sequence of instructions of a program, commanding which instruction to execute next in the <font color="#517519">program's</font> sequence.
+            
+            <br> <br> <img src="pics/programcounter.png" class="img">
+            
+            <br> <br> i know i know... this will raise a lot of questions in your <font color="#517519"><i>microcontroller</i></font>.
+            <br> <br> So, The <font color="#517519">program counter</font> operates by being incremented (summoned) each time an instruction is fetched from memory. This ensures that it always points to the address of the next instruction in memory. After fetching an instruction, It is updated to reflect the address of the next instruction. This process allows the CPU to quickly progress through the program, executing instruction after instruction after instruction in a sequential manner, until the sun <font color="#517519">explodes</font>.
+            <br> <br> But- can the program counter move backward? Technically yes but no, it usually advances forward as instructions are executed in sequence. But certain instructions like loops or jumps can make it go backward (more like, virtually holding its position without stoping) or to different memory locations, allowing for <font color="#517519">non-sequential</font> execution. As for starting from the beginning of a program, the initial value of the <font color="#517519">program counter</font> depends on the computer's architecture. Typically, it starts at the memory address where the program begins. Yet, exceptions exist, such as interrupt handlers or <font color="#517519">OS routines</font>, where the program counter might be set to different addresses. Let's see what the kernel provides to programs regarding memory access on different levels:
+            
+            <br> <br> In Kernel Level memory level of access, the operating system reserves a protected area of memory called kernel space. Allows for managing hardware devices and handling <font color="#517519">system calls</font>, operating with unrestricted access to hardware stuff. When a <font color="#517519">user-level</font> program requires privileged operations, it makes a <font color="#517519">system call</font>. The kernel, in turn, provides system calls and interfaces for user-space programs to perform tasks like memory <font color="#517519">allocation</font>, reading, and writing under the privilege of virtual memory management. This system translates between virtual and physical memory addresses and it is done by the <font color="#517519">PTE</font> after pointing to the start of the <font color="#517519">X-KiB</font> block in RAM (usually <font color="#517519">4bits</font>), the MMU then adds the remaining bits <font color="#517519">0-X</font> to that address to get the final physical address.
+            
+            <br> <br> Let's take a look at a code snippet demonstrating simple Linux kernel modules that allocates and deallocates memory in kernel space using the <font color="#517519">‘kmalloc()’</font> and <font color="#517519">‘kfree()’</font> functions:
+            
+            <br> <br>                    <img src="pics/mem-alloc.png" class="img-small">
+            
+            <br> <br> So, what you just read is basically the <font color="#517519">‘malloc()’</font> and <font color="#517519">‘free()’</font> functions with the addition of <font color="#517519">‘K’</font> which stands for <i>kernel</i> allowing them to be used within the kernel space. What it does isn’t anything new but still worth bringing up, It initializes a kernel module that allocates 1024 bytes of memory using the first function from the Linux kernel's memory allocation subsystem. If the allocation fails, an error message is printed to the kernel log. If allocation is successful, the memory is freed using a second function before the module exits.
+            
+            <br> <br> • User Space memory access: Is able to give programs access to memory through standard language constructs (like <font color="#517519">pointers</font> in <font color="#517519">C/C++</font>) or language specific memory management functions and most commonly system libraries such as <font color="#517519">libc</font> (again, for <font color="#517519">Linux</font>).
+            </p>
+            
+            <h2>Over-Powered Codes</h2>
+            <p>Just to be clear, <font color="#517519">OpCode</font> is abbreviated from <font color="#517519">Op</font>eration <font color="#517519">Code</font>. Ignore the Topic name - when the data is dancing back and forth between the CPU and RAM, <font color="#517519">OpCodes</font> will come in handy as they serve the role of instructions directed by the CPU representing the great <a href="https://en.wikipedia.org/wiki/Machine_code" rel="noopener noreferrer" target="_blank" class="custom-link"><i>machine language</i></a> understood by the CPU. Each <font color="#517519">OpCode</font> corresponds to a specific action the CPU can perform such as data transfers or even arithmetic operations. IT'S EVERYWHERE!
+                This is a demonstration showing the <font color="#517519">'ADD' OpCode</font>:
+                
+                <br> <br>                                                  <img src="pics/Lin-ASM.png" class="img-small">
+                
+                <br> <br> looking at the data section, <font color="#517519">‘operand1’</font>, <font color="#517519">‘operand2’</font>, and <font color="#517519">‘result’</font>. These are <font color="#517519">32-Bit</font> signed integer variables (‘dd’ directive).
+                In the code section, we load the value of <font color="#517519">‘operand’</font> into the <font color="#517519">EAX</font> register using the <font color="#517519">‘mov’</font> instruction.
+                After, the value of ‘operand2’ was added to the value in the <font color="#517519">EAX</font> register using the <font color="#517519">‘add’</font> instruction. And finally the result was stored back into the ‘result’ variable in memory, then the program exited using the <font color="#517519">‘exit’</font> syscall with a status of 0 – (0 indicates a successful execution).
+                <br> <br> | Clarification: What in the world is a syscall?
+                <br> <br> Programs operate in <font color="#517519">user-mode</font> for security reasons, limiting their access to system resources. While user mode provides primary protections, programs still need to perform  tasks like <font color="#517519">I/O</font> operations and memory allocation.
+                <br> To do this, they rely on the operating system <font color="#517519">kernel</font> for assistance. Common functions like <font color="#517519">‘open’, ‘read’, ‘fork’</font>, and <font color="#517519">‘exit’</font> act as  bridges between user mode and the kernel, triggering <font color="#517519">syscalls</font> giving these interactions. These specific system calls allow programs to transition from user space to kernel space, accessing <font color="#517519">OS</font> services <i>securely</i>.
+                <br> <br> Well.. what exactly are OpCodes used for? They actually have other common purposes other than serving as the bridge to heaven coordinating between the CPU and RAM. Per say, directing traffic while a program is executing a sequence of instructions, <font color="#517519">OpCodes</font> come and stop it to dictate the specific actions the CPU must perform, like fetching, storing, or executing operations on stored data - Honestly, they deserve the security badge at some point.
+          
+                <br> <br> Time to revisit the CPU fetch, execute cycle but focus more on OpCodes.
+          
+                <br> <br> Fetching: As you know, when the CPU executes a program, it begins fetching instructions from RAM. The instruction pointer (or, <font color="#517519">IP</font>) points to the memory address of the next instruction to be executed, The CPU uses this address to retrieve the <font color="#517519">OpCode</font> associated with the corresponding instruction from RAM.
+                <br> The reason for that is it acts as the instruction instead of the instruction itself, like.. OpCodes act like instructions more than the instructions do themselves!! (<i>i just wanted to fit that "joke" in there</i>).
+          
+                <br> <br> Decoding: Upon fetching from RAM, the CPU’s <font color="#517519">Control Unit</font> decodes the <font color="#517519">OpCode</font> to determine the nature of the operation to be performed. This <font color="#517519">‘decoding’</font> process involves interpreting the OpCode and identifying the specific instruction it represents.
+          
+                <br> <br> But how does the CPU interpret instructions from RAM into a language it can comprehend?
+                <br> First, instructions fetched from RAM are encoded in <font color="#517519">machine language</font> consisting of just raw <font color="#517519">binary</font> patterns representing specific operations or commands. These instructions are typically composed of an <font color="#517519">OpCode</font>, which does exactly what’s explained above – so then the CPU can identify <font color="#517519">OpCodes</font> from RAM within the fetched instruction. At the time of identifying, The <font color="#517519">OpCode</font> is located in a predefined position within the instruction’s binary representation.
+                <br> Who does the <font color="#517519">‘decode</font>’ process? definitely not the CPU. Here comes the <font color="#517519">Control Unit (CU)</font>. It’s responsible for analyzing this portion of the instruction to determine the corresponding operation given by the CPU.
+                <br> <i><font color="#517519">Machine Code</font> is fun!! Everyone should learn it and call it a day!!</i> 
+          
+                <br> <br> <b>Follow up note</b>:
+                Imagine the CPU as not just one big thing, but more like a bunch of many parts, each with its own job. One of them happens to be the <font color="#517519">Control Unit</font>, guiding and directing the flow of instructions through the CPU. The <font color="#517519">Control Unit</font> then takes instructions from the memory and sends them along the stages of a pathway called the <font color="#517519">instruction pipeline</font>. With each stage handling a different part of the instruction. The instruction is fetched from memory and brought into the CPU. Then, the CU decodes the instruction, figuring out what it's asking the CPU to do.
+                <br> After that, the CPU executes the instruction, carrying out the desired operation, whether it's adding two numbers together or moving data from one place to another. The <font color="#517519">CU</font> also manages other tasks, like handling interrupts and coordinating with other parts of the system, like memory and <font color="#517519">I/O</font> devices.
+                
+
+                <br> <br> | Clarification: what does “ce quoi” mean?
+                <br> It means “what is”.
+        
+                <br> <br> | Another Clarification: Ce quoi “Machine Code”?
+                <br> It’s the world view of what the CPU sees and it’s the lowest level programming language known to mankind (typically a roadman language) understood directly by the CPU. It consists of binary instructions that represent specific operations (again). But don’t worry yet, if you’re new to coding, we use higher level languages such as C, Java… which are then compiled/interpreted into machine code for the hardware to comprehend. On a side note, can we understand machine code ‘content’? Yesn’t. Because Assembly language saved the day! It serves as an interpreter between human-readable code and machine-executable code/binary while providing accessible syntax for programmers to write and understand instructions compared to raw binary data; on all means, it’s always compiled into binary that your computer can understand, here’s an example:
+        
+                <br> <br>                                             <img src="pics/Mcodeconvert.png" class="img-small">
+        
+                <br> <br> The original machine code represents the instruction <font color="#517519">‘ADD R1, R2, R3’</font>.
+                 ‘001’, ‘010’, and ‘011’ are binary representations of register operands <font color="#517519">‘R1'</font>, <font color="#517519">‘R2’</font>, and <font color="#517519">‘R3’</font>.
+                <br> <br> Converting the binary machine code to hexadecimal translates to <font color="#517519">‘52B’</font>.
+                 <font color="#517519">‘0101’</font> in binary is <font color="#517519">‘5’</font> in hex, <font color="#517519">‘0010’</font> is <font color="#517519">‘2’</font>, and <font color="#517519">‘1011’</font> is <font color="#517519">‘B’</font>.
+                <br> <br> <font color="#517519">‘ADD R1, R2, R3’</font> represents the operation of adding the contents of registers <font color="#517519">‘R2’</font> and <font color="#517519">‘R3’</font> and storing the result in register <font color="#517519">‘R1’</font> back to RAM.
+                        
+            </p>
+
+            <p style="text-align: center;"><i>Empty space for no reason, literally</i></p>
+
+            <button id="prev-button" class="nav-button" style="text-align: right;" onclick="window.location.href='page3.html'">Prev&#160; &#11164;</button>
+            <button id="next-button" class="nav-button" style="text-align: left;" onclick="window.location.href='page5.html'">&#11166; &#160;Next</button>
+
+            
+            <a href="page3.html"><button id="ChapterPrev">&#11164; Prev</button></a>
+            <a href="page5.html"><button id="ChapterNext">Next &#11166;</button></a>
+    </section>
+
+    <footer>
+        <p>This is still a <i>work-in-progress</i> and might contain mistakes, if you find any: please pull a request on the <a href="https://github.com/ILyesMk2/RAM-a-thon" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Github page.</i></a></p>
+    </footer>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

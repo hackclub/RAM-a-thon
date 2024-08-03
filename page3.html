@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>RAM-a-thon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page3">
+    <p>
+        <h1 class="header">Part of 'RAM-a-thon'</h1>
+        <p class="header-p" style="text-align: center;">cyber rift</p>
+      </p>
+
+    <section class="intro">
+    <h5>Segment 3</h5>
+    <h2>The Memory Pyramid</h2>
+    <p>In modern systems, memory hierarchy refers to the organization of different types of memory based on speed, cost and capacity. This so called <b>Memory Pyramid</b> aims to maximize performance by utilizing various memory technologies for different purposes consisting of many components. We'll take a closer look at each unit in detail as we progress further, basics included:
+
+       <br> <br> • Registers: At the top of <font color="#517519">memory hierarchy</font> are CPU registers, which are small high-speed storage locations directly accessible by the CPU that stores data temporarily during CPU operations (e.g: locating <font color="#517519">pointers</font> in memory), enabling fast data access and manipulation.
+        
+       <br> <br> • Cache Memory: Is a small but extremely fast type of memory located between the CPU and RAM, it is also organized into multiple levels like <font color="#517519">L1</font> - <font color="#517519">L2</font> and sometimes <font color="#517519">L3</font> caches with each level offering progressively larger capacity but slower access speeds. You can say RAM plays a role in this but I will not include it.
+        
+       <br> <br> • Tertiary Storage: Imagine it as an archive storage system used for long-term retention of data that is infrequently accessed like magnetic tape libraries and optical storage systems (idk these myself!) - The point of this is to offer very large capacities at low costs since it's made for the consumer market but has slower access speeds compared to ‘reserve storage’ (read below).
+       <br> And yes you read that right, i don't make the names.
+        
+       <br> <br> • Reserve Storage: It's just “using secondary storage like SSDs and HDDs as RAM when the RAM itself runs out of space” but with a different name. If your brain has low memory and forgot the explanation above,reserve storage will act as RAM, in other words when the RAM capacity reaches its limits and can't store more data due to space running out, your SSD will come in handy with a part of it that’s gonna act as the RAM but it’s as slow as your mom (sorry, i really had to pull a ‘your mom’ joke right there!)
+        
+       <br> <br> • Virtual memory: <font color="#517519">VRAM</font>? Yes, but not quite. <font color="#517519">VRAM</font> and <font color="#517519">VRAM</font> are two distinct entities:
+       <br> <br> <b>First</b>: Video RAM (discussed earlier), or Video Random Access Memory, is a <font color="#517519">‘special’</font> type of memory used by GPUs. This memory is specifically dedicated to storing pixels and other graphical data. It acts as a framebuffer, holding the information that needs to be displayed on a computer monitor.
+       <br> <br> <b>Second</b>: Virtual Memory. So, what does it do? Essentially, When you're using your computer the programs and apps you run are managed by something called virtual memory. This means that each program you use is kept separate from the others, and it seems like each one has access to all the memory on your device – But here's the thing:
+       <br> your device's memory space is actually limited, and it can't hold everything from every program all at once.
+       <br> So, even though it looks like each program has access to all the memory it wants, only a small part of that memory is actually stored in the physical memory of your device. The rest is stored on your device's disk.
+       <br> <br> Theoretically speaking, when your device's <font color="#517519">physical</font> RAM gets full, <font color="#517519">virtual memory</font> comes into play. It's like a backup plan and reserve storage as VRAM uses a partition of your device's disk space to emulate additional RAM.
+       <br> In reality, your computer freezes for a couple of seconds and then eventually comes to a halt.
+       <br> And even if the theory becomes reality: VRAM will introduce a significant performance overhead. Why? Because accessing data from the disk is much slower than accessing it from RAM. So, while virtual memory can give you more memory to work with, it can also slow things down because of the slower speed of storage compared to RAM.
+        
+        Still, virtual memory is a handy workaround that prevents technical dissasters.</p>
+
+    <h2>CPU Registers</h2>
+    <p>I know this is related to CPUs but I have to address it here somewhere since it is a part of the <font color="#517519">memory hierarchy</font>.
+        
+        <br> So.. these registers are high-speed storage locations directly built into the CPU itself, they hold the stored <font color="#517519">binary</font> data temporarily during operations to quickly access it as needed while executing instructions, there are several registers available, each with its own set of conventions for use. Some registers are general-purpose, meaning you can store any necessary data in them while your program is running.
+        <br> <br> <i>- In the end, it's all a bunch of machine code splattered everywhere -</i>
+
+        <br> <br> The CPU has many of these specialized registers that we don’t access directly. One of them is the instruction pointer. This register keeps track of the address of the current instruction being executed and automatically updates itself as the CPU progresses through tasks.
+        <br> <br> When a program is <font color="#517519">executed</font>, data and <font color="#517519">instructions</font> are transferred between RAM and CPU registers, first the CPU fetches instructions from RAM into its registers then processes them and may end up storing the results back into RAM. This is known as <font color="#517519">'CPU Write Back'</font>, sometimes resulting in instructions getting delayed.
+        <br> <br> 
+
+        <img src="pics/fdbuffer.png" class="img-small">
+
+        <br> <br> To solve the speed gap between registers, <font color="#517519">Cache-Memory</font> is used as it sits between the both of them, storing copies of frequently accessed data and instructions reducing the need to access data directly from RAM, preserving it for high-priority tasks.
+        <br> Logically, delaying instructions on purpose seems like a problem in itself. this is why Memory Adress Registers exist.
+        <br> <br> A ‘special’ CPU register that holds the memory address of the next instruction or data that the CPU wants to access when reading from or writing to memory, loading the wanted memory addresses into the MAR.
+        <br> The width of the address bus determines the maximum number of memory addresses that can be used by the CPU, for example a <font color="#517519">32-Bit</font> address bus can add up to <font color="#517519">2^32 (4,294,967,296)</font> memory locations. THATS A LOT OF d̶a̶m̶a̶g̶e LOCATIONS!
+        <br> <br> <b>Meanwhile 64-Bit systems</b>: <i>Laughing in machine language</i>.
+
+        <br> <br> Similar to MAR is MDR (Mem Data Reg). Yet another register within the CPU responsible for temporarily storing data during memory read and write operations. When the CPU executes a read operation from memory, the requested data is transferred from the memory module to the MDR.
+        <br> Analogously, when the CPU needs to write data to memory, it first places the data into the MDR before initiating the write operation to the appropriate memory location.
+        <br>  <br> The MDR then acts as a temporary buffer for data transferred between the CPU and main memory, allowing data exchange within the system while being organized into a linear address space, where each memory has a unique address, because why not? i mean.. anything memory-space-related has to involve CPU segmentation somewhere.
+        <br> <br> Memory paging techniques are also used to manage present addresses more efficiently, this is good for PCs with large amounts of memory ->
+         <a href="https://www.youtube.com/watch?v=uHAfTty9UWY&pp=ygUHTFRUIFJBTQ%3D%3D" rel="noopener noreferrer" target="_blank" class="custom-link"><i>LTT with a 6TB RAM.</i></a>
+
+
+         <br> <br> More accurately, 64-bit registers can hold a number up to a massive <font color="#517519">18,446,744,073,709,551,615.</font>
+        <br> <br> Many architectures exist and each one has different ways to perform all kinds of tasks.
+        <br> Other than that, they store control signals and status flags used by the CPU to manage program execution, handle interrupts and perform error checking while ensuring the relationship between CPU registers and RAM is consistent with the addition of clock synchronization done across the many different registers there is.
+
+    Now we can conclude that Registers are useful in the operation of a computer system making the CPU able to interact with its memory to execute programs and process data properly.
+
+    <br> <br> | Clarification:   What’s a ‘process’? really. What is it in CS?
+
+    <br> <br> A process is like a copy of a program that's actively running on your computer.
+    <br> Let’s say you have a game on your computer, and you decide to play it. Your computer creates a process for that game, if you start a second instance of that game to play at the same time, a separate  process will be created for it. So, there can be many processes for the same program running at once.
+
+    <br> <br> Inside each process, there's a lot going on. It's not just the program's code; there's also a bunch of stuff that the program needs to keep track of while it's running and we’ll go through many aspects of it down the line. This includes things like current values in a program, any messages or signals the program receives, any files the program has opened to read or write data, any connections the program has made to other computers over the internet, and other resources the program is using, it’s anything you can do, really.
+
+    <br> All of this information is stored in the process's memory. And holds other details such as values, code…etc, a process also has some extra information about itself stored by the computer. This extra information helps the operating system manage and keep track of what each process is doing.</p>
+    
+    <h2>Processes</h2>
+    
+    <h5> "Processes are the lifeblood of an operating system, and context switching is its heartbeat" </h5> 
+    <p> This is basically what you just finished reading above, but explained at length.
+
+      <br>  So, a program is made up of a few different things. First, there's what's called a binary format. This the code that tells the operating system how to understand the program. It says which parts of the program are meant to be run as instructions, which parts are just information that doesn't change, like numbers or words (referred to as static values in memory), and which other programs, called libraries, need to be included to make everything work.
+      <br> <br> Then, there are the actual instructions that the program follows… numbers that tells the program where to start following those instructions.
+        
+        And don't leave out the constants! The constants are just data that does not change regardless of how the program runs. Not even if you happen to fly a <font color="#517519">747</font> into the trade center in MSFS! 
+        <br> There are also libraries that the program needs to use, tools that are borrowed from other programs to assist it in doing its work. The program then has to know where to get the libraries and how to use them.
+        <br> With all of these things put together we have a program. Each of these parts must work together in order for the program to run properly.
+        
+        <br> <br> Ever wondered how they start? Or is it just me?
+        Because when you turn on your computer (assuming you use <font color="#517519">Linux</font>), magical things happen behind the scenes.
+        
+        <br> <br> | Author’s Death Note (Definitely not an easter egg): 
+        Did you know that every program on your computer starts from another program, except one?
+        <br> <br> That's the <font color="#517519">'init'</font> process. Unlike other programs, the <font color="#517519">'init'</font> process is created directly by the kernel, not by another program. It's the very first program that starts running when your computer starts up, and it's the last one to stop when you shut it down.
+        
+         Your operating system starts up and creates a process called <font color="#517519">'init.d'</font>, located in <a href="https://github.com/torvalds/linux/tree/22b8cc3e78f5448b4c5df00303817a9137cd663f/init" rel="noopener noreferrer" target="_blank" class="custom-link"><i>/etc/init.d/</i></a>– this process a super godsend important doer that does a bunch of tasks to keep your computer running.
+         <br> <br> It is in charge of handling signals and interrupts. These are little messages that your computer sends and receives to let it know when something important is happening (saved for later).
+         <br> For example, if you press a key on your keyboard or move your mouse, your computer needs to know about it, and <font color="#517519">'init'</font> ensures everything gets handled properly.
+        <br> But that's not all it does! It also has a special module that helps certain parts of the CPU and its connection with the OS, specifically the kernel. This means that even if your computer shuts down or has a problem, these important parts will still be there when you turn it back on, Kernel is the real savior.
+        <br> <br> When things get sketchy and you want to run a new program, you actually create a new process for it. And guess what? Another function is used, called <font color="#517519">'fork()'</font> to do it. Once the new process is created, Yet another function is used to load the program you want to run into it.
+        
+        <br> <br> | Clarification: What’s the point of forking functions? 🍴
+        <br> <br> The <font color="#517519">'fork'</font> function is used in <font color="#517519">'C'</font> programming to create a new process, known as the child process, which is an exact copy of the calling process, known as the parent process. Here’s a snippet where we create two separate processes with different return values using the <font color="#517519">'fork'</font> func: 
+        
+         <br> <br>                                                  <img src="pics/p-forking.png" class="img-small">
+        
+        <br> <br> So, there you have it! When your (Linux) computer starts up, it creates <font color="#517519">'init.d'</font> to handle all sorts of tasks, and whenever you want to run a new program, you use <font color="#517519">'fork'</font> and some other functions to make it happen. Cool, right?
+        <br> <br> <b>Fun Fact</b>: You can’t see these things with the naked eye, Thank me later.
+        
+        <br> <br> Processes are the bond that hold everything together on your devices, but they're a bit like loners too. You see, each process is powerful and can do a lot of cool stuff, but it's also kind of isolated from other processes. What does that mean? 
+        <br> Well, it means that by default, one process can't really communicate with another process. They're all in their own little bubble, doing their own thing without bothering anyone else.
+        
+        And why is this isolation thing so important? Let’s say you have an Amazon cloud computer, AWS for example. In a big system like that, you've got all kinds of processes running, Some of which might have super high privileges, like monitoring the system or accessing the Kernel in runtime, while others might just be regular everyday processes doing their thing.
+        <br> <br> Now, if all these processes could just interact with each other whenever they felt like it, your computer can’t stand a chance! You definitely don't want a regular user to accidentally mess with one of those high-privilege processes and bring the whole system down, right? Or worse, what if someone with <a href="https://www.wired.com/story/jia-tan-xz-backdoor/" rel="noopener noreferrer" target="_blank" class="custom-link"><i>not-so-good intentions</i></a> purposely tried to sabotage things by messing with a process?
+        That's why this isolation thing is needed. Each process has its own virtual space to do its thing, and it can't mess with anyone else's space without proper permission.
+        
+        <br> <br> Let’s try running the following code:
+        
+        <br> <br>                                                              <img src="pics/secrets.png" class="img-small">
+        
+        <br> <br> Chances are, When running the provided code on two separate terminals simultaneously, both instances would print the number 1 instead of 2. Even if we attempted to edit the code in a clever way, such as directly accessing the memory, it would remain impossible to alter the state of another process. And this is process isolation.
+        
+        <br> <br> This gets us to, how do you differentiate between the child and parent process code when writing it?
+        When writing code that behaves differently for the parent and child processes in a Unix operating system, you typically utilize the <font color="#517519">'fork()'</font> syscall. This call creates a new process, which is an exact copy of the parent process, including its code and data. After the <font color="#517519">'fork()'</font> call, the parent and child processes can differentiate between each other based on the return value of `fork()`.
+        <br> <br> A return value of -1 indicates that something went wrong in creating the child process. In such cases, checking the value stored in <a href="https://en.wikipedia.org/wiki/Errno.h" rel="noopener noreferrer" target="_blank" class="custom-link"><i>'errno'</i></a> can help identify the type of error that occurred, with common errors including <font color="#517519">'eagain'</font> and <font color="#517519">'enomem'</font>. On the other hand, a return value of 0 indicates that the code is running in the child process, while a positive integer indicates the parent process.
+        <br> The positive value returned by <font color="#517519">'fork()'</font> gives us the <a href="https://en.wikipedia.org/wiki/Process_identifier" rel="noopener noreferrer" target="_blank" class="custom-link"><i>process ID</i></a> of the child. Which the child process can use to identify its parent, aka the original process that was duplicated, by calling <font color="#517519">'getppid()'</font>, eliminating the need for additional return information from forking.
+        <br> If so, then what traits does the child process receive from the(ir) parent?
+        
+        <br> <br> Well, when a new process is spawned through forking from an existing one, the child process inherits some characteristics from its parent. These include a mirrored version of the parent's memory structure, covering code, data, heap, and stack segments.
+        <br> Alongside this, the child process gains access to file descriptors that were opened in the parent process, preserving the environment variables, user and group IDs, and signal handlers.
+        interestingly, the child process also commences its execution from the same point in the code as its parent, with the transfer of resource limits and potentially scheduling priorities.
+        <br> Despite these shared traits, each process functions individually, with modifications in one process not impacting the other. Aspects like ‘open file handles, signal handlers, current working directory, and environment variables’ are transferred interchangeably.
+        
+        <br> <br> If you're interested like i am, processes are made of seperate certain segments like the <font color="#517519">'text segment'</font> where all the instructions and code are stored. It's the part that tells the process what to do and how to do it. This is the best part because it's the only chunk of the process that's executable. If you try to change the code while it's running, you'll likely cause a crash (You WILL cause a crash).
+        
+        <br> <br> Another one is the handler of all the global variables used in the process. <font color="#517519">'data segment'</font>. It's the storage area for a process that contains all kinds of variables. There are two types of areas within the data segment: the initialized area, which holds variables with preset values, and the uninitialized area, which holds variables that haven't been given a value yet. This segment is writable but not executable. Also, it's different from other segments in size, since it's determined by vaules present in the src code and can't be changed during runtime.
+        
+        <br> <br> Every time a new variable is declared or a function is called, the <font color="#517519">'stack'</font> grows to make room for it where the process keeps track of things like function calls and local variables. If the stack grows too big, it can cause a <a href="https://en.wikipedia.org/wiki/Stack_overflow" rel="noopener noreferrer" target="_blank" class="custom-link"><i>stack overflow</i></a> (error, not the website), which usually results in a crash. unlike the <font color="#517519">'text segment'</font>, the stack is writable but not executable.
+        
+        <br> <br> Sometimes there's room for a room to room if needed, This is <font color="#517519">'heap'</font>. An extra storage space that the process/stack can use if it needs more memory. It's where things like dynamically allocated memory go. The <font color="#517519">'heap'</font> can grow as needed, but if the system is limited or if you run out of available memory addresses, you can run into problems. the <font color="#517519">'heap'</font> is writable but not executable.
+        
+        <br> <br> So, if this long topic teached me anything. It would be that: A process consists of various parts that enable it to function properly. Firstly, the <font color="#517519">'text segment'</font> stores the program's instructions and code, allowing the execution of tasks. the <font color="#517519">'data segment'</font> then holds global variables, both initialized and uninitialized, providing data storage. The <font color="#517519">'stack'</font> manages function calls and local variables dynamically, while the <font color="#517519">'heap'</font> allocates dynamic memory spaces, accommodating additional space when needed.</p>
+
+    <h2>Interrupta-pedia.</h2>
+    <p> While we’re still in the context of processes, How do processes switch contexts without getting interrupted by other processes?
+        <br> They do exactly what I did here. They do so using <a href="https://en.wikipedia.org/wiki/Interrupt_descriptor_table" rel="noopener noreferrer" target="_blank" class="custom-link"><i>interrupt descriptor table</i></a>. More specifically <font color="#517519">'IDT'</font> is just the implementation name for the x86_64 architecture; otherwise it’s referred to as <a href="https://en.wikipedia.org/wiki/Interrupt_vector_table" rel="noopener noreferrer" target="_blank" class="custom-link"><i>interrupt vector table</i></a>.
+
+        <br> An <font color="#517519">'IVT'</font> is like a big list that matches up different types of interrupt requests with specific actions called  <font color="#517519">'interrupt handlers'</font>. These interrupt requests are like little flags that tell the computer, "Hey, I started doing X, pay attention!!" Each item in this list is called an  <font color="#517519">'interrupt vector'</font>, and it holds the memory address where the computer should go to find the right interrupt handler for that specific type of interrupt. These handlers are also known as  <a href="https://stackoverflow.com/questions/3392831/what-happens-in-an-interrupt-service-routine" rel="noopener noreferrer" target="_blank" class="custom-link"><i>interrupt service routines</i></a>.
+        <br> <br> Although the idea of an  <font color="#517519">'IVT'</font> is pretty common among different types of chips (or, architectures), the way they're set up can vary depending on the specific architecture. For example, there's something called a  <font color="#517519">'dispatch table'</font>, which is one way to organize and set up an  <font color="#517519">'IVT'</font>. It's kind of like having a directory that helps the computer quickly find the right handler when an interrupt comes knocking.
+        <br> OS developers have three methods to pinpoint the starting address of the interrupt, each one relying on the presence of an <font color="#517519">'IVT'</font>.
+        
+        <br> <br> First, is the <font color="#517519">'predefined'</font> method where the <a href="https://en.wikipedia.org/wiki/Program_counter" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Program Counter</i></a> directly loads with the address of an entry within the <font color="#517519">'IVT'</font>. The table itself protects executable code. And each entry comprises a solitary jump instruction directing to the complete <font color="#517519">'interrupt service routine'</font> corresponding to that particular interrupt. Mostly embraced by platforms like the <font color="#517519">'Intel® 8080'</font>, and other microship first gen <a href="https://en.wikipedia.org/wiki/Microcontroller" rel="noopener noreferrer" target="_blank" class="custom-link"><i>microcontrollers</i></a> such as <font color="#517519">'Atmel AVR'</font>.
+        
+        <br> <br> Secondly, the <font color="#517519">'fetch'</font> method does an indirect loading of the <font color="#517519">'Program Counter'</font>. Here, the address of an entry within the <font color="#517519">'IVT'</font> is utilized to extract an address from said table loading the <font color="#517519">'Program Counter'</font> with the derived address. Each entry of the latter corresponds to the address of an <font color="#517519">'ISR'</font>; this single handedly loads the <font color="#517519">'Program Counter'</font>, without it - it might be impossible to do the <font color="#517519">'interrupt aknowledge'</font> method.
+        <br> <br> Operated by the external device furnishing the CPU with an interrupt handler number. So, when an interrupt event occurs, the CPU attempts to locate the corresponding interrupt handler within the <font color="#517519">'IVT'</font>, thereafter handing over the control to the <a href="https://en.wikipedia.org/wiki/Kernel_(operating_system)" rel="noopener noreferrer" target="_blank" class="custom-link"><i>kernel</i></a>.
+        For example:
+        
+        <br> <br>   <img src="pics/interrupt-handling.png" class="img-small">
+        
+        <br> <br> The column <font color="#517519">'interrupt vector number'</font> specifies the number assigned to each interrupt vector.
+        The column labeled "Handler Address" shows the exact memory location where the associated interrupt handler routine resides. It's like a map telling the CPU where to find the right instructions to deal with specific interruptions. The IVT comprehensively covers interrupt vectors ranging from 0 to 255, allowing for a range of interrupt types to be handled. But, the actual number of entries and vector numbers can vary, as it depends on the specific architecture.
+        
+        <br> <br> <b>Unexpected tidbit</b>: If you abbreviate the term <font color="#517519">'interrupt descriptor table'</font>. Then reverse it - You get <font color="#517519">'TDI'</font>, which stands for <a href="https://en.wikipedia.org/wiki/TDI_(engine)" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Turbo Charged Diesel Injection</i></a>, an engine developed by Volkswagen fo- Okay. Ethically, believe it or not but computers emit more CO2 than cars.
+        
+        <br> <br> Why <font color="#517519">'IVTs'</font>? Because operating systems are as simple as just a bridge between the hardware interrupts and programs. To make handling interrupts simpler, custom libraries are/can be used.
+        <br> On Unix systems, there's one called <a href="https://www.gnu.org/software/libc/" rel="noopener noreferrer" target="_blank" class="custom-link"><i>libc</i></a>. Not sure about this but i think Windows has its own built-in <a href="https://en.wikipedia.org/wiki/Dynamic-link_library" rel="noopener noreferrer" target="_blank" class="custom-link"><i>DLL</i></a>. These libraries wrap the low-level instructions needed to manage interrupts into simple functions that any program can use.
+        <br> So, when a program calls one of these functions, it's like making a regular phone call – nothing fancy.
+        <br> But behind the scenes, in these libraries, there's some tricky assembly code doing the work. This code is super specific to the type of architecture your computer is running. It's like having a Chinese translator whom you don’t even understand – it makes sure programs can talk to computer hardware without any problems.
+    <br> And that's why Various assembly languages exist, each tailored to the specific processor you intend to communicate with.</p>
+
+    <h2>Memory Pointers</h2>
+    <p> | Clarification: What is <a href="https://en.wikipedia.org/wiki/Kernel_(operating_system)" rel="noopener noreferrer" target="_blank" class="custom-link"><i>kernel</i></a> btw?
+  <br> <br> Your computer's main programs, such as Windows, or Linux, help it do basic tasks. The main part of these programs is called the kernel. When you turn on your computer, it starts with the kernel. it has control over everything in your computer, including memory. It also manages the other programs you use. <i>We'll talk more about how the kernel does this later!</i>
+  <br> Linux is a special program that's just a kernel. It needs extra programs like shells and display UIs to be more accessible. For macOS, its kernel is called <a href="https://en.wikipedia.org/wiki/XNU" rel="noopener noreferrer" target="_blank" class="custom-link"><i>XNU</i></a>, and it's a bit like Unix. Since Windows uses the NT Kernel to run. Each of these kernels has a different way of managing your computer and for windows, it's used to ensure you have input problems.
+  <br> So, whether you're using a Mac, an emulator, or a Linux machine, it's the kernel that keeps things ticking along nicely.
+  
+  <br> <br> A <a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)" rel="noopener noreferrer" target="_blank" class="custom-link"><i>pointer</i></a>… in computing, is a programming language object that stores the memory address of another value located in computer memory and it’s essentially a reference to a(nother) memory location.
+  <br> <font color="#517519">Pointers</font> are mostly used in programming languages like <font color="#517519">C</font>, <font color="#517519">C++</font> and others to manage memory content dynamically.
+  
+  <br> <br> Okay… it’s dynamic, but how can a memory stored in a specific location inside RAM be dynamic? <i>I don't get it either!</i>
+  <br> If you’ve done some low-level programming before then you know that <font color="#517519">pointers</font> in general allow programmers to allocate memory dynamically at runtime using functions like <font color="#517519">'malloc()'</font> in <font color="#517519">C</font>, because it's good, and prevents memory waste for the most part. <i>more on <font color="#517519">'malloc'</font> and <font color="#517519">'free''</font> on the way</i>
+
+  <br> <br> Let's start with the definition and <a href="https://en.wikipedia.org/wiki/Syntax_(programming_languages)" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Syntax</i></a> of Function <font color="#517519">Pointers</font> a bit more in-depth.
+  <br> First, It is a variable that stores the address of a function in memory, while the Syntax for declaring a function <font color="#517519">pointer</font> involves specifying the return type and parameter types of the function it points to, in particular: it uses <font color="#517519">`return_type (*pointer_name) (*parameter_types);`</font> because these pointers are created by assigning the address of a function to a pointer variable.
+  
+  <br> <br>                                             <img src="pics/func_ps.png" class="img-small">
+  
+  <br> <br> For these functions to be used, you have two main options: you either use a <a href="https://stackoverflow.com/questions/14224831/meaning-of-referencing-and-dereferencing-in-c" rel="noopener noreferrer" target="_blank" class="custom-link"><i>dereferencing operator</i></a> <font color="#517519">('*')</font> or the <a href="https://learn.microsoft.com/en-us/cpp/cpp/function-call-operator-parens?view=msvc-170" rel="noopener noreferrer" target="_blank" class="custom-link"><i>function call operator</i></a><font color="#517519">'()'</font>. It's just like in Syntax programming, where you have different ways to call functions.
+  
+  <br> <br> When you call a <font color="#517519">dereferencing operator</font>, you're specifically prompting the computer to treat the function that is pinged by the operator as a regular function. On the other hand, when you use <font color="#517519">function call operator</font>, you're directly invoking the wanted function just like you would with any regular function in Syntax programming. Function operators are the Swiss Army knife of programming languages.
+  
+  <br> <br>                                               <img src="pics/func_p_invoke.png" class="img-small">
+  
+  <br> <br> <b>Did you know:</b> that function callbacks exist?. They do, but in the form of arguments to other functions allowing the called function to execute the passed function at a later time, take a look at a Callback Function being used in <font color="#517519">C</font>:
+  
+  <br> <br>                                              <img src="pics/callbackfunc.png" class="img-small">
+  
+  <br> <br> In <a href="https://en.wikipedia.org/wiki/Object-oriented_programming" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Object Oriented programming</i></a>, Func <font color="#517519">pointers</font> are used for dynamic dispatch as they can enable <a href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science)" rel="noopener noreferrer" target="_blank" class="custom-link"><i>polymorphic behavior</i></a> allowing the correct function to be invoked based on the type of object in runtime. It’s mostly used for creating virtual functions. (e.g in <font color="#517519">C++</font> virtual functions are declared using the <font color="#517519">'virtual''</font> keyword) – for Java it goes with the annotation <font color="#517519">'@override'</font>, but who cares about Java anyway?
+  <br> <br> <b>Wrap-up</b>: So now you know when a program executes, memory <font color="#517519">pointers</font> are used to access data stored in RAM as the CPU fetches it from back its registers using memory <font color="#517519">pointers</font>. This data is then operated upon by the CPU’s <a href="https://en.wikipedia.org/wiki/Arithmetic_logic_unit" rel="noopener noreferrer" target="_blank" class="custom-link"><i>arithmetic logic unit-s</i></a> <font color="#517519">(ALU)</font> after doing its never-ending Fetch-Execute cycle, the CPU keeps executing instruction after another while the <font color="#517519">pointer</font> keeps moving forward pointing to the next instruction.
+  
+  <br> <br>       <img src="pics/averagemachinecycle.png" class="img-small">                              </p>
+
+
+
+    <h2>One Fusion Away From Shrinking</h2>
+    <p>Ever heard of the word ‘superscalar’? It’s not just a fancy word; it carries decades of architectural advancements within it which gets me to the question, How are instructions formed?
+        <br> First we have <font color="#517519">instruction fusion</font> that somewhat does its fair share in constructing instructions by consolidating multiple independent instructions from a program into a single <a href="https://en.wikipedia.org/wiki/Micro-operation" rel="noopener noreferrer" target="_blank" class="custom-link"><i>micro operation</i></a> <font color="#517519">(micro-op)</font> that can be executed. <i>consolidating=fusing.</i>
+
+        <br> It is a clever strategy employed by certain CPUs to overcome performance overheads. It does so by combining several separate instructions from a program into a single or micro-op, which the CPU can execute in one operation.
+        <br> <br> You should know that instruction fusion is distinct from cases where a single complex instruction, like <font color="#517519">'cpuid'</font> or <font color="#517519">'lock add'</font> , because registers like <font color="#517519">'EAX'</font>  split into multiple <font color="#517519">micro-operations</font> . In most cases, instructions decode into a single <font color="#517519">micro-op</font> , which is the norm for modern x86 CPUs.
+        <br> Speaking of x86, the CPU's backend must carefully manage all <font color="#517519">micro-operations</font>  associated with each instruction, regardless of whether <a href="https://stackoverflow.com/questions/56413517/what-is-instruction-fusion-in-contemporary-x86-processors" rel="noopener noreferrer" target="_blank" class="custom-link"><i>fusion</i></a> occurred. Once all the micro-operations linked to a particular instruction have completed execution and retired from the <a href="https://en.wikipedia.org/wiki/Re-order_buffer" rel="noopener noreferrer" target="_blank" class="custom-link"><i>re-order buffer,</i></a> <font color="#517519">(ROB)</font>.
+        <br> <br> Any instruction that goes through that is considered retired. It's worth mentioning that interrupts can only occur at instruction boundaries, so retirement must align with these boundaries to ensure proper handling of pending interrupts. This means that retired slots can be filled without regard to instruction boundaries, except when handling interrupts.
+        
+        As you know, the CPU takes care of managing instruction fusion, but the operating system also makes the most out of this trick.
+        <br> <br> In the (Linux) <font color="#517519">kernel</font> , there are smart changes made to find and use <font color="#517519">instruction fusion</font>  opportunities. These changes are deep into the code, checking sets of instructions to see if they can be put together. By finding separate instructions and putting them together into a single action. One big plus of using <font color="#517519">instruction fusion</font>  in (Linux) <font color="#517519">kernel</font>  is that it cuts down on pauses in the CPU pipeline. When several instructions are combined into one action, the CPU's <font color="#517519">pointer</font>  doesn't have to stop as often, And about how instructions are handled by the CPU's parts. Each instruction might be made up of smaller bits called <font color="#517519">micro-ops</font>, depending on how complicated it is.
+        <br> The <font color="#517519">program counter</font> keeps track of all these little parts for each instruction, whether they're combined or not. When all the <font color="#517519">micro-ops</font>  or for one instruction are done, it's considered finished, or <font color="#517519">'retired'</font> ; And this is important because the CPU can't stop in the middle of a task to handle something like an interrupt.
+        <br> When everything is going the way it's supposed to, the backend(x?) can add new instructions without having to stop in the middle of something else.
+        
+        <br> <br> So, how does the <font color="#517519">kernel</font> benifit from fusion?, By putting several <font color="#517519">micro-instructions</font> together into one <font color="#517519">big-instruction</font>, the CPU can get more tasks done in a shorter amount of time. And the instruction pipeline works better overall while also preventing pipeline stalls.
+        <br> <br> <b>In other words</b>: <i>the CPU is speedrunning instructions.</i></p>
+    
+
+    <h2>How CPUs Make Smart Guesses</h2>
+    <p>Yes, CPUs really make guesses based on many attributes using a branch predictor, which is a <font color="#517519">digital circuit</font> CPUs use to speed things up a bit. Technically speaking; it’s an internal predictor that anticipates the probable direction of a program's execution flow before it reaches a decision height, and tries to preemptively determine the outcome of conditional statements, such as <a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming)" rel="noopener noreferrer" target="_blank" class="custom-link"><i>'if/else'</i></a> constructs.
+
+    <br> <br> Why is this guesswork important? CPUs work in an assembly line fashion, fetching and processing instructions one after another endlessly. But when a program encounters a branch/decision point, the CPU has to wait to figure out which instruction to fetch next. This waiting slows things down by sooo much and it’s just… <font color="#517519">inconvenient</font>  (<i>i really wanted to use that word</i>).
+        
+    <br> <br> Here's where the <font color="#517519">branch predictor</font>  is useful (as in most cases). It analyzes past branching patterns and uses that information to guess which path (taken or not taken) is more likely. If the guess is correct, the CPU can keep the instruction pipeline flowing allowing programs to be executed. But what happens when it takes a wrong turn? Oops! When the <font color="#517519">branch predictor</font>  makes a bad guess, the CPU pipeline comes to a halt, breaking all of the computer components. <i>Come on, did you really believe that?</i>
+    <br> A wrong <font color="#517519">branch prediction</font> comes with a performance penalty. Resulting in the CPU having to spend extra cycles clearing out the pipeline and fetching the correct instructions. This is especially noticeable for complex branches or loops that are predicted incorrectly - looking at you <font color="#517519">Python</font>!
+        
+    <br> <br> The way it realy works internally is by involving the CPU and attempting to foresee the direction of program execution before reaching a <font color="#517519">branch instruction</font>. When encountering a it, the CPU faces unpredictability regarding which instruction to fetch next, again - <i>resulting in a pipeline stall</i>.
+    <br> <font color="#517519">Branch prediction</font> techniques can be categorized into static and dynamic approaches. Static prediction relies on simple strategies, such as always assuming a branch will be taken or not taken, rather lacking in accuracy. On the other hand, dynamic prediction employs more methods that learn from past branch behavior. Common dynamic prediction techniques are the use of a <font color="#517519">Branch History Table</font> to track recent branch history and a 2-bit saturating counter to assess branch outcomes. In terms of OS, Linux <font color="#517519">conditional branches</font> are encountered in code execution, doing similar challenges to the CPU. - Linux is great at managing branch prediction scenarios - 
+        
+    <br> <br> - A topic can’t be technical without including <font color="#517519">kernel</font> in it - And that’s why <font color="#517519">Kernel-level</font> branching comes alive. The (Linux) <font color="#517519">kernel</font> often shows specific branching patterns in its codebase that you can find, reflecting the logic of many many different <font color="#517519">kernel</font> subsystems and functionalities, for example; in the <font color="#517519">kernel</font> code, we use <a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming)" rel="noopener noreferrer" target="_blank" class="custom-link"><i>'if/else'</i></a> statements and loops a lot to make predictions based on different situations. These early predictions allow the <font color="#517519">kernel</font> to figure out what to do next, like responding to interrupts. If a program requests the <font color="#517519">kernel</font> to do something, it does so by running the right code for that request (<i>obviously</i>). It has different ways to deal with these devices, like getting them ready to use, moving data to and from them, or handling any problems that come up. It does this by using things called <font color="#517519">‘locks’</font> to control access to memory or files. If something goes wrong while the system is running, the <font color="#517519">kernel</font> finds out and tries to fix it. <i>You just read what the kernel does again for the 99th time, this will be the last time - i promise.</i>
+        
+    <br> <br> What about <a href="https://en.wikipedia.org/wiki/User_space_and_kernel_space" rel="noopener noreferrer" target="_blank" class="custom-link"><i>User-level</i></a>  branching? if you have a functional CPU, then it performs branch prediction when conditional branches are present in <a href="https://en.wikipedia.org/wiki/User_space_and_kernel_space" rel="noopener noreferrer" target="_blank" class="custom-link"><i>User-level</i></a> apps. This involves predicting outcomes of branches based on past behavior and patterns - whether likely to be taken or not taken. Prefetching instructions lets the CPU to execute them ahead of time upon such predictions, reducing pipeline stalls impact and beating the unbeatable instruction fetch world record.
+        
+    <br> <br> For instance, branch prediction in <font color="#517519">user-space</font> helps the CPU anticipate loop conditions when a large dataset is iterated over and over by <font color="#517519">user-level</font> apps. It can also prefetch instructions before iteration begins which again, prevents possible pipeline stalls - <i>Operating systems are weird.</i>
+        
+    <br> <br> I have the thought “branch prediction is a performance overhead in itself, and it’s used to guess upcoming instructions upon pre-fetching trying to cover the prefetch delay caused by predicting. Then what’s the point?” <br> <br> <b>One equivalent thing to say</b>: <i>‘Is it truly healing if you must first harm yourself?’.</i></p>
+
+    <p style="text-align: center;"><i>Empty space for no reason, literally</i></p>
+
+    <button id="prev-button" class="nav-button" style="text-align: right;" onclick="window.location.href='page2.html'">Prev&#160; &#11164;</button>
+    <button id="next-button" class="nav-button" style="text-align: left;" onclick="window.location.href='page4.html'">&#11166; &#160;Next</button>
+        
+    <a href="page2.html"><button id="ChapterPrev">&#11164; Prev</button></a>
+    <a href="page4.html"><button id="ChapterNext">Next &#11166;</button></a>
+
+    </section>
+
+<footer>
+    <p>This is still a <i>work-in-progress</i> and might contain mistakes, if you find any: please pull a request on the <a href="https://github.com/ILyesMk2/RAM-a-thon" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Github page.</i></a></p>
+</footer>
+
+<script src="scripts.js"></script>
+
+</body>
+</html>
