@@ -15,33 +15,33 @@
     <section class="intro">
     <h5>Segment 3</h5>
     <h2>The Memory Pyramid</h2>
-    <p>In modern systems, memory hierarchy refers to the organization of different types of memory based on speed, cost and capacity. This so called <b>Memory Pyramid</b> aims to maximize performance by utilizing various memory technologies for different purposes consisting of many components. We'll take a closer look at each unit in detail as we progress further, basics included:
+    <p>In modern systems, memory hierarchy refers to the organization of different types of memory based on speed, cost and capacity. The so called <b>Memory Pyramid</b> aims to maximize performance by utilizing various memory technologies for different purposes. We'll take a closer look at each unit in detail as we progress further, basics include:
 
-       <br> <br> • Registers: At the top of <font color="#517519">memory hierarchy</font> are CPU registers, which are small high-speed storage locations directly accessible by the CPU that stores data temporarily during CPU operations (e.g: locating <font color="#517519">pointers</font> in memory), enabling fast data access and manipulation.
+       <br> <br> • Registers: At the top of <font color="#517519">memory hierarchy</font> are CPU registers, which are small high-speed storage locations directly accessible by the CPU that stores data temporarily during CPU operations (e.g: locating <font color="#517519">pointers</font> in memory).
         
        <br> <br> • Cache Memory: Is a small but extremely fast type of memory located between the CPU and RAM, it is also organized into multiple levels like <font color="#517519">L1</font> - <font color="#517519">L2</font> and sometimes <font color="#517519">L3</font> caches with each level offering progressively larger capacity but slower access speeds. You can say RAM plays a role in this but I will not include it.
         
-       <br> <br> • Tertiary Storage: Imagine it as an archive storage system used for long-term retention of data that is infrequently accessed like magnetic tape libraries and optical storage systems (idk these myself!) - The point of this is to offer very large capacities at low costs since it's made for the consumer market but has slower access speeds compared to ‘reserve storage’ (read below).
+       <br> <br> • Tertiary Storage: Imagine it as an archive storage system used for long-term retention of data that is infrequently accessed like magnetic tape libraries and optical storage systems (idk about these myself!) - The point of this is to offer very large capacities at low costs since it's made for the consumer market but has slower access speeds compared to ‘reserve storage’ (read below).
        <br> And yes you read that right, i don't make the names.
         
        <br> <br> • Reserve Storage: It's just “using secondary storage like SSDs and HDDs as RAM when the RAM itself runs out of space” but with a different name. If your brain has low memory and forgot the explanation above,reserve storage will act as RAM, in other words when the RAM capacity reaches its limits and can't store more data due to space running out, your SSD will come in handy with a part of it that’s gonna act as the RAM but it’s as slow as your mom (sorry, i really had to pull a ‘your mom’ joke right there!)
         
        <br> <br> • Virtual memory: <font color="#517519">VRAM</font>? Yes, but not quite. <font color="#517519">VRAM</font> and <font color="#517519">VRAM</font> are two distinct entities:
        <br> <br> <b>First</b>: Video RAM (discussed earlier), or Video Random Access Memory, is a <font color="#517519">‘special’</font> type of memory used by GPUs. This memory is specifically dedicated to storing pixels and other graphical data. It acts as a framebuffer, holding the information that needs to be displayed on a computer monitor.
-       <br> <br> <b>Second</b>: Virtual Memory. So, what does it do? Essentially, When you're using your computer the programs and apps you run are managed by something called virtual memory. This means that each program you use is kept separate from the others, and it seems like each one has access to all the memory on your device – But here's the thing:
-       <br> your device's memory space is actually limited, and it can't hold everything from every program all at once.
-       <br> So, even though it looks like each program has access to all the memory it wants, only a small part of that memory is actually stored in the physical memory of your device. The rest is stored on your device's disk.
+       <br> <br> <b>Second</b>: Virtual Memory. When you're using your computer, the programs and apps you run are managed by something called virtual memory. This means that each program you use is kept separate from the others, and it seems like each one has access to all the memory on your device – But here's the thing:
+       <br> your device's memory space is actually limited, and it can't hold everything from every single program all at once.
+       <br> So, even though it looks like each program has access to all the memory it needs, only a small part of that memory is actually stored in the physical (part) memory of your device. The rest is on disk.
        <br> <br> Theoretically speaking, when your device's <font color="#517519">physical</font> RAM gets full, <font color="#517519">virtual memory</font> comes into play. It's like a backup plan and reserve storage as VRAM uses a partition of your device's disk space to emulate additional RAM.
        <br> In reality, your computer freezes for a couple of seconds and then eventually comes to a halt.
-       <br> And even if the theory becomes reality: VRAM will introduce a significant performance overhead. Why? Because accessing data from the disk is much slower than accessing it from RAM. So, while virtual memory can give you more memory to work with, it can also slow things down because of the slower speed of storage compared to RAM.
+       <br> And even if the theory becomes reality: VRAM will introduce a huge performance slowdown. Because accessing data from the disk is much slower than accessing it from RAM. So, while virtual memory can give you more memory to work with, it can also slow things down because of the slower speeds.
         
-        Still, virtual memory is a handy workaround that prevents technical dissasters.</p>
+        <br> Still, virtual memory is a handy workaround that prevents technical dissasters.</p>
 
     <h2>CPU Registers</h2>
     <p>I know this is related to CPUs but I have to address it here somewhere since it is a part of the <font color="#517519">memory hierarchy</font>.
         
         <br> So.. these registers are high-speed storage locations directly built into the CPU itself, they hold the stored <font color="#517519">binary</font> data temporarily during operations to quickly access it as needed while executing instructions, there are several registers available, each with its own set of conventions for use. Some registers are general-purpose, meaning you can store any necessary data in them while your program is running.
-        <br> <br> <i>- In the end, it's all a bunch of machine code splattered everywhere -</i>
+        <br> <br> <i>- In the end, I̶t̶ d̶o̶s̶e̶n̶'t̶ e̶v̶e̶n̶ m̶a̶t̶t̶e̶r̶  it's all a bunch of machine code splattered everywhere -</i>
 
         <br> <br> The CPU has many of these specialized registers that we don’t access directly. One of them is the instruction pointer. This register keeps track of the address of the current instruction being executed and automatically updates itself as the CPU progresses through tasks.
         <br> <br> When a program is <font color="#517519">executed</font>, data and <font color="#517519">instructions</font> are transferred between RAM and CPU registers, first the CPU fetches instructions from RAM into its registers then processes them and may end up storing the results back into RAM. This is known as <font color="#517519">'CPU Write Back'</font>, sometimes resulting in instructions getting delayed.
@@ -49,7 +49,7 @@
 
         <img src="pics/fdbuffer.png" class="img-small">
 
-        <br> <br> To solve the speed gap between registers, <font color="#517519">Cache-Memory</font> is used as it sits between the both of them, storing copies of frequently accessed data and instructions reducing the need to access data directly from RAM, preserving it for high-priority tasks.
+        <br> <br> To solve the speed gap between registers, <font color="#517519">Cache-Memory</font> is used as it sits between the two of them, storing copies of frequently accessed data and instructions reducing the need to access data directly from RAM, preserving it for high-priority tasks.
         <br> Logically, delaying instructions on purpose seems like a problem in itself. this is why Memory Adress Registers exist.
         <br> <br> A ‘special’ CPU register that holds the memory address of the next instruction or data that the CPU wants to access when reading from or writing to memory, loading the wanted memory addresses into the MAR.
         <br> The width of the address bus determines the maximum number of memory addresses that can be used by the CPU, for example a <font color="#517519">32-Bit</font> address bus can add up to <font color="#517519">2^32 (4,294,967,296)</font> memory locations. THATS A LOT OF d̶a̶m̶a̶g̶e LOCATIONS!
@@ -62,7 +62,7 @@
          <a href="https://www.youtube.com/watch?v=uHAfTty9UWY&pp=ygUHTFRUIFJBTQ%3D%3D" rel="noopener noreferrer" target="_blank" class="custom-link"><i>LTT with a 6TB RAM.</i></a>
 
 
-         <br> <br> More accurately, 64-bit registers can hold a number up to a massive <font color="#517519">18,446,744,073,709,551,615.</font>
+         <br> <br> More accurately, 64-bit registers can hold a number up to a massive <font color="#517519">18,446,744,073,709,551,615</font> bits.
         <br> <br> Many architectures exist and each one has different ways to perform all kinds of tasks.
         <br> Other than that, they store control signals and status flags used by the CPU to manage program execution, handle interrupts and perform error checking while ensuring the relationship between CPU registers and RAM is consistent with the addition of clock synchronization done across the many different registers there is.
 
@@ -253,7 +253,7 @@
     </section>
 
 <footer>
-    <p>This is still a <i>work-in-progress</i> and might contain mistakes, if you find any: please pull a request on the <a href="https://github.com/ILyesMk2/RAM-a-thon" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Github page.</i></a></p>
+    <p><i>PDF edition coming soon</i></p>
 </footer>
 
 <script src="scripts.js"></script>
