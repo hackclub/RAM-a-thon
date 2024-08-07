@@ -18,7 +18,7 @@
         <p>You see, memory is treated like a <font color="#517519">queen</font> in computers. How so? Something known as <font color="#517519">“memory bus”</font> exists, and it makes the CPU eligible for communicating with RAM through the <font color="#517519">Motherboard’s PCB</font> channels for transferring data and memory control <font color="#517519">signals</font>.
             <br> <br> The memory bus acts as a bridge allowing the CPU to access and manipulate stored data in RAM which is needed to properly <font color="#517519">execute</font> programs and instructions.
 
-        <br> <br> <img src="pics/IObuses.png" class="img-small">   
+         <img src="pics/IObuses.png" class="img-small">   
 
         <br> <br > Before that, how do you think your computer processes instructions so fast? Do they run on <font color="#517519">cheese</font>?
 
@@ -29,7 +29,7 @@
         <br> Another path can be added to send a computed value to a future instruction in the pipeline before the <i>-currently-</i> <font color="#517519">producing</font> instruction finishes. This process is called <font color="#517519">operand forwarding</font>.
         <br> <br> The processor then can find and execute other instructions that don't depend on the current ones without risk. This is called <font color="#517519">out-of-order</font> execution and helps optimize performance. The whole design looks something like this:
         
-        <br> <br> <img src="pics/cpucyclefull.png" class="img-small">
+         <img src="pics/cpucyclefull.png" class="img-small">
 
         <br> <br> You reached the end.. no, wait! while we’re still in the context of pipelines; let me introduce you to FPUs, because they’re FPU-linked at some point. <i>-this was intentionally unfunny-</i>
         </p>
@@ -46,6 +46,8 @@
             <br> <br>Let’s do a quick reality check - FPUs deliver superior precision along with performance when contrasted against software-based floating point arithmetic implementations. They have come a long way to support more complex computations, a necessary part of today’s CPU architecture. Despite being highly specialized components that most software applications see through a glass darkly, they present themselves as transparent entities. This means that programmers can make use of their capabilities without swimming under the turkish waters of <font color="#517519">low-level</font> implementation(s).
 
             <br> <br>Now that you know about it, <a href="https://en.wikipedia.org/wiki/Front-side_bus" rel="noopener noreferrer" target="_blank" class="custom-link"><i>FSB</i></a> is a term that refers to the primary communication channel between the CPU and other parts, including RAM, on the motherboard. In older systems you can find <font color="#517519">two</font> of these, one being the <font color="#517519">North bridge</font> and located in the left CPU side, the other one is (more like <i>was</i>) <font color="#517519">South Bridge</font> located just under the <font color="#517519">PCI-e x-YY</font> port.
+
+            <img src="pics/FSB.png" alt="front side bus" class="img-small">
 
             <br> <br> It’s a literal highway within your computer serving as the main <font color="#517519">‘conduit’</font> for data transfer between the CPU and various components on the motherboard, modern system buses are typically based on <a href="https://en.wikipedia.org/wiki/Point-to-Point_Protocol" rel="noopener noreferrer" target="_blank" class="custom-link"><i>point to point interconnects</i></a> allowing for data to go from point A to B in a snap of (<font color="#517519">17</font>?) nanoseconds!
             <br> AND.. This might give you a better idea on how memory size is defined to the driver(s) through a memory bus:
@@ -67,7 +69,7 @@
             
             <br> <br> Each entry in the page table, known as a <a href="https://en.wikipedia.org/wiki/Page_table" rel="noopener noreferrer" target="_blank" class="custom-link"><i>Page Table</i></a> Entry <font color="#517519">(PTE)</font>, contains metadata defining the attributes and mappings for a specific memory page. These attributes include information about the page's physical address, permissions (<font color="#517519">read, write, or execute</font>), and whether the page is present in physical memory or <font color="#517519">reserved/swapped</font> out to disk.
             
-            <br> <br>  <img src="pics/PTE.png" class="img-small">
+              <img src="pics/PTE.png" class="img-small">
             
             <br> <br> As soon as the kernel switches over to the new process and the CPU transitions into <font color="#517519">user mode</font>, access to the kernel memory is lost. These Page Table Entries <font color="#517519">(PTEs)</font> are then utilized by the kernel to remap the lower half of the virtual memory, a region identified by the <font color="#517519">program counter</font>, for the new process. By then, the CPU loses access to any of the kernel memory regions.
             <br> <br> The kernel and CPU can only process one thing at a time. It's like they're taking turns to handle tasks efficiently. (it's true)
@@ -77,7 +79,7 @@
             <br> <br> At startup, memory accesses hit physical RAM first. Soon after, the <font color="#517519">OS</font> sets up the translation dictionary and signals the CPU to engage the <font color="#517519">MMU</font>. <i>x86-64</i> offers larger page sizes of <font color="#517519">2 MiB</font> or <font color="#517519">4 GiB</font>, enhancing address translation speed at the cost of memory fragmentation and waste. Larger chunks require more bits for indexing, leading to unchanged bits before and after translation.
             <br> <br> What's interesting is that the <font color="#517519">page table</font> can be adjusted at runtime. This allows each process to have its own memory space. When the <font color="#517519">OS</font> switches between processes, it reassigns the virtual memory space to a new physical area. For example, process <font color="#517519">A</font> and process <font color="#517519">B</font> might both access their code and data from the same address, like <font color="#517519">'0x0000000000400000'</font>. In that case, they aren't competing for this space. The kernel maps their data differently in physical memory when switching between them.
             
-            <br> <br>      <b>| Clarification</b>: How come the <font color="#517519">kernel</font> doesn't get stuck in just one instruction if it can only do one thing at a time? And how does it manage to handle lots of different tasks at once without getting <font color="#517519">jammed</font> up?
+                  <b>| Clarification</b>: How come the <font color="#517519">kernel</font> doesn't get stuck in just one instruction if it can only do one thing at a time? And how does it manage to handle lots of different tasks at once without getting <font color="#517519">jammed</font> up?
             
             <br> <br> You said your computer got jammed up? We discussed before how software <font color="#517519">interrupts</font> help switch control from a regular program to the <font color="#517519">operating system</font>. Imagine you're making an operating system, but your CPU can only handle one task at a time. To let users run multiple programs simultaneously, you switch between them quickly. This way, each program gets a turn without hogging the CPU. But how so?
             <br> <br> Well, many computers have <font color="#517519">timer chips</font>. Consider that, By programming these chips, you can make them trigger a switch to an <a href="https://en.wikipedia.org/wiki/Interrupt_handler" rel="noopener noreferrer" target="_blank" class="custom-link"><i>OS interrupt handler</i></a> after a set time. Other than that, we got the good old <font color="#517519">‘program counter’</font> method, which is yet another CPU register. This register tells the CPU where it currently stands within the sequence of instructions of a program, commanding which instruction to execute next in the <font color="#517519">program's</font> sequence.
@@ -92,7 +94,7 @@
             
             <br> <br> Let's take a look at a code snippet demonstrating simple Linux kernel modules that allocates and deallocates memory in kernel space using the <font color="#517519">‘kmalloc()’</font> and <font color="#517519">‘kfree()’</font> functions:
             
-            <br> <br>                    <img src="pics/mem-alloc.png" class="img-small">
+                                <img src="pics/mem-alloc.png" class="img-small">
             
             <br> <br> So, what you just read is basically the <font color="#517519">‘malloc()’</font> and <font color="#517519">‘free()’</font> functions with the addition of <font color="#517519">‘K’</font> which stands for <i>kernel</i> allowing them to be used within the kernel space. What it does isn’t anything new but still worth bringing up, It initializes a kernel module that allocates 1024 bytes of memory using the first function from the Linux kernel's memory allocation subsystem. If the allocation fails, an error message is printed to the kernel log. If allocation is successful, the memory is freed using a second function before the module exits.
             
@@ -103,7 +105,7 @@
             <p>Just to be clear, <font color="#517519">OpCode</font> is abbreviated from <font color="#517519">Op</font>eration <font color="#517519">Code</font>. Ignore the Topic name - when the data is dancing back and forth between the CPU and RAM, <font color="#517519">OpCodes</font> will come in handy as they serve the role of instructions directed by the CPU representing the great <a href="https://en.wikipedia.org/wiki/Machine_code" rel="noopener noreferrer" target="_blank" class="custom-link"><i>machine language</i></a> understood by the CPU. Each <font color="#517519">OpCode</font> corresponds to a specific action the CPU can perform such as data transfers or even arithmetic operations. IT'S EVERYWHERE!
                 This is a demonstration showing the <font color="#517519">'ADD' OpCode</font>:
                 
-                <br> <br>                                                  <img src="pics/Lin-ASM.png" class="img-small">
+                                                                  <img src="pics/Lin-ASM.png" class="img-small">
                 
                 <br> <br> looking at the data section, <font color="#517519">‘operand1’</font>, <font color="#517519">‘operand2’</font>, and <font color="#517519">‘result’</font>. These are <font color="#517519">32-Bit</font> signed integer variables (‘dd’ directive).
                 In the code section, we load the value of <font color="#517519">‘operand’</font> into the <font color="#517519">EAX</font> register using the <font color="#517519">‘mov’</font> instruction.
@@ -133,10 +135,10 @@
                 <br> <br> | Clarification: what does “ce quoi” mean?
                 <br> It means “what is”.
         
-                <br> <br> | Another Clarification: Ce quoi “Machine Code”?
+                <br> <br> | Follow-up Clarification: Ce quoi “Machine Code”?
                 <br> It’s the world view of what the CPU sees and it’s the lowest level programming language known to mankind (typically a roadman language) understood directly by the CPU. It consists of binary instructions that represent specific operations (again). But don’t worry yet, if you’re new to coding, we use higher level languages such as C, Java… which are then compiled/interpreted into machine code for the hardware to comprehend. On a side note, can we understand machine code ‘content’? Yesn’t. Because Assembly language saved the day! It serves as an interpreter between human-readable code and machine-executable code/binary while providing accessible syntax for programmers to write and understand instructions compared to raw binary data; on all means, it’s always compiled into binary that your computer can understand, here’s an example:
         
-                <br> <br>                                             <img src="pics/Mcodeconvert.png" class="img-small">
+                                                             <img src="pics/Mcodeconvert.png" class="img-small">
         
                 <br> <br> The original machine code represents the instruction <font color="#517519">‘ADD R1, R2, R3’</font>.
                  ‘001’, ‘010’, and ‘011’ are binary representations of register operands <font color="#517519">‘R1'</font>, <font color="#517519">‘R2’</font>, and <font color="#517519">‘R3’</font>.
