@@ -1,7 +1,7 @@
 # RAM-a-thon
 The handy explanation of computers you've always subconsciously dreamed of, now a reality.
 
-https://cloud-bvnzju2pf-hack-club-bot.vercel.app/0ghbannerba.png
+<img width="1506" src="https://cloud-bvnzju2pf-hack-club-bot.vercel.app/0ghbannerba.png">
 
 This is a big topic, where you're either a 1 or a 0. But it dosen't matter as long as you don't cause a stackoverflow.
 
