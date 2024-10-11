@@ -15,4 +15,4 @@ _But why stop there?_
 
 If you’re curious about the tech behind your screen & keen to learn more, you’re going to have some fun along the way!
 
-**Quo duo pro**, you check it out here --> [RAM-a-thon, Segment 0](https://ram-a-thon.vercel.app/)
+**Quo duo pro**, check it out here --> [RAM-a-thon, Segment 0](https://ram-a-thon.vercel.app/)
