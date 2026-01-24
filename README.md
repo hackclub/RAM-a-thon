@@ -1,7 +1,7 @@
 # RAM-a-thon
 The handy explanation of computers you've always subconsciously dreamed of, now a reality.
 
-<img width="1506" src="https://cloud-bvnzju2pf-hack-club-bot.vercel.app/ghbannerba.png">
+![RAM-a-thon Banner](https://raw.githubusercontent.com/hackclub/RAM-a-thon/main/pics/GHbannerba.png)
 
 Computers are a big topic—whether you're a **1** or a **0**, it doesn't really matter as long as you don’t cause a stack overflow.
 
